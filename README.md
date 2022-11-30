@@ -5,10 +5,14 @@
 
 - Wellbeing for each person (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc) for each person:
 
-  **Mel:** sleep / breaks / coffee, 
+  **Mel:** sleep / breaks / coffee,
+  
   **Ashley:** sleep / coffee, 
+  
   **Eben:** sleep / coffee, 
-  **Mimi:** music / alone, 
+  
+  **Mimi:** music / alone,
+  
   **Serafin:** space
 
 - Expectation setting and agreements (what do we each want out of this time, what hours will we keep outside of bootcamp, what do we do when conflict arises, how will we communicate, especially what hours work will happen over the weekend)
@@ -32,10 +36,15 @@
   Depends on the role of the person and the feature that's being worked on.
 
 - How will you work (what roles and what agile rituals will you use etc)
+
   **Eben:** Scrum Lead
+  
   **Ashley:** PO
+  
   **Serfain:** Backend Lead
+  
   **Mimi:** Frontend Lead
+  
   **Mel** Git Keeper
 
 - How will you survive (Will you eat together? How will you break the tension? What is your fun times plan?)
