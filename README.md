@@ -4,16 +4,17 @@
   Good!
 
 - Wellbeing for each person (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc) for each person:
+  Stress profiles and what helps us move forward:
 
-  **Mel:** sleep / breaks / coffee,
+  **Mel:** I go very quiet because internally I'm panicing. I also may appear to be a bit abrupt, but that's only because I don't what to say - it's nothing persoanl. To counteract this, I need sleep, breaks and coffee.
   
-  **Ashley:** sleep / coffee, 
+  **Ashley:** Face changes and looks grumpy. I need to chat to people, go for a walk and sleep or drink coffee to counteract this. 
   
-  **Eben:** sleep / coffee, 
+  **Eben:** I go quiet. I stop joking. To manage this, I need sleep / coffee and try to maintain a sense of humour. 
   
-  **Mimi:** music / alone,
+  **Mimi:** I stop laughing when I'm stressed. I need music / to be alone and go for a walk.
   
-  **Serafin:** space
+  **Serafin:** I go quiet - even more than I already am. I need space.
 
 - Expectation setting and agreements (what do we each want out of this time, what hours will we keep outside of bootcamp, what do we do when conflict arises, how will we communicate, especially what hours work will happen over the weekend)
 
@@ -21,7 +22,7 @@
 
 - How will you make decisions together? How will you handle conflict?
 
-  When it comes to decisions, we will come together in a stand up. When it comes to conflict, see above, however, we will apply what we have learnt in the Human Skills sessions, i.e. non-violent communication / couragous conversations model.
+  When it comes to decisions, we will come together in a stand up and we will make decisions as a team. When it comes to conflict, see above, however, we will apply what we have learnt in the Human Skills sessions, i.e. non-violent communication / couragous conversations model.
 
 - How will you, individually and as a team, get the help you need both technically and non-technically?
 
