@@ -3,15 +3,12 @@
 - Check in (how are you? How do you feel about working on this larger project?)
 Good!
 
-- Wellbeing for each person (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc) for each person
--- Mel - sleep / breaks / coffee
--- Ashley - sleep / coffee
--- Eben - sleep / coffee
--- Mimi - music / alone
--- Serafin - space
+- Wellbeing for each person (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc) for each person:
+*Mel:* sleep / breaks / coffee, *Ashley:* sleep / coffee, *Eben:* sleep / coffee, *Mimi:* music / alone, *Serafin:* space
 
 - Expectation setting and agreements (what do we each want out of this time, what hours will we keep outside of bootcamp, what do we do when conflict arises, how will we communicate, especially what hours work will happen over the weekend)
-We may work in the evenings (we'll see how we go). We will use Slack to communicate with each other around this. However, we've decided that we will come into Campus on Saturday from 10 until 4.30/5pm. We will get in touch with the Human Skills facilitators if there is conflict in terms of team morale. If there is a conflict regarding the tech side, we will get in touch with a facilitator - this will be done within a reasonable timeframe so we keep the momentum and productivity going.
+
+  We may work in the evenings (we'll see how we go). We will use Slack to communicate with each other around this. However, we've decided that we will come into Campus on Saturday from 10 until 4.30/5pm. We will get in touch with the Human Skills facilitators if there is conflict in terms of team morale. If there is a conflict regarding the tech side, we will get in touch with a facilitator - this will be done within a reasonable timeframe so we keep the momentum and productivity going.
 
 - How will you make decisions together? How will you handle conflict?
 When it comes to decisions, we will come together in a stand up. When it comes to conflict, see above, however, we will apply what we have learnt in the Human Skills sessions, i.e. non-violent communication / couragous conversations model.
