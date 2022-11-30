@@ -55,8 +55,36 @@
 ## Project planning
 
 - What is your MVP? How much work do you think it will take to achieve it? When do you want to reach MVP by?
+  WIP (need to do user stories and wireframing)
+  
 - What tech will you be using? Is there anything you need to research? If you’re using our stack, will you use Redux?
+  We will be using react-redux - we are yet to decide on a CSS framework, this may be tailwind.
+  
 - GitFlow. How will you arrange your work?
+  We will have individual branches, either solo or in pairs. We're still deciding on how best to split up the tasks (Sprints).
+  
 - Roles. Which will you use? Who will be accountable for which areas? Will you swap roles at some point?
+  See above for roles. We are hoping to retain these for the entire week as we feel it may become too disruptive and confusing if we decide to swap, but we will revisit if needed.
+  
 - What might a day look like? What agile rituals will happen? When during the day will you do the hard tech? Will you go outside _as a team_?
+  We will be incorporating standups, kanban, sprints and retros. We want to use the majority of the day to do tech, but will have some down time as team.
+  
 - How will you reflect and improve over the week?
+  We will do a retro at the end of each day.
+  
+###Schedule
+
+####Mornings
+9.15am stand up
+9.30 programming
+10.30 break (Wordle etc.)
+11.00 continue programming
+12.30 lunch
+
+####Afternoons
+2pm stand up
+2.15pm programming
+3.15pm break
+3.30 programming
+4.45 retro (what's working well, opportunuties to improve, actions to be put in place)
+5pm(ish) finish
