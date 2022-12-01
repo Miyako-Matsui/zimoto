@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import Home from './Home'
+import Home from './Home/Home'
 import Profile from './Profile'
 import GuideProfile from './GuideProfile'
 
