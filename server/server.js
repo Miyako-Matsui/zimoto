@@ -9,14 +9,13 @@ const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
-// const profilesRouter
+server.use('/api/v1/guides', guideRoutes)
+
+server.use('/api/v1/reviews', reviewsRoutes)
 
 server.get('*', (req, res) => {
   res.sendFile(path.resolve('server/public/index.html'))
 })
 
-server.use('/api/v1/guides', guideRoutes)
-
-server.use('/api/v1/reviews', reviewsRoutes)
 
 module.exports = server
