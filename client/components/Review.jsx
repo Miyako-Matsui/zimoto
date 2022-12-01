@@ -3,13 +3,13 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 export default function Review() {
-  const reviewsArr = useSelector((globalState) => globalState.reviews)
-  console.log(reviewsArr)
+  const reviews = useSelector((globalState) => globalState.reviews)
+  console.log(reviews)
 
   return (
     <>
       <div>
-        {reviewsArr.map((review) => {
+        {reviews.map((review) => {
           return (
             <div key={review.id}>
               <p>{review.rating}</p>
