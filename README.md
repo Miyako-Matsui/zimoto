@@ -72,16 +72,16 @@
 - How will you reflect and improve over the week?
   We will do a retro at the end of each day.
   
-###Schedule
+### Schedule
 
-####Mornings
+#### Mornings
 9.15am stand up
 9.30 programming
 10.30 break (Wordle etc.)
 11.00 continue programming
 12.30 lunch
 
-####Afternoons
+#### Afternoons
 2pm stand up
 2.15pm programming
 3.15pm break
