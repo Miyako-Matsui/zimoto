@@ -17,8 +17,12 @@ function deleteReview(id, db = connection) {
   .del()
 }
 
+function getAllReviews(db = connection) {
+  return db('reviews').select()
+}
 module.exports = {
   addReview,
   editReview,
   deleteReview,
+  getAllReviews,
 }
