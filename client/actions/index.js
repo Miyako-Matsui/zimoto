@@ -16,3 +16,22 @@ export function fetchguides() {
     })
   }
 }
+
+//Reviews
+import { getReviewsApi } from '../apis/reviews'
+export const SET_REVIEWS = 'SET_REVIEWS'
+
+export function setReviewsAction(reviews) {
+  return {
+    type: SET_REVIEWS,
+    payload: reviews,
+  }
+}
+
+export function fetchReviewsThunk() {
+  return (dispatch) => {
+    return getReviewsApi().then((exercises) => {
+      dispatch(setReviewsAction(exercises))
+    })
+  }
+}
