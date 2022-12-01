@@ -18,7 +18,7 @@ export function fetchguides() {
 }
 
 //Reviews
-import { getReviewsApi } from '../apis/reviewsApi'
+import { getReviewsApi } from '../apis/reviews'
 export const SET_REVIEWS = 'SET_REVIEWS'
 
 export function setReviewsAction(reviews) {
