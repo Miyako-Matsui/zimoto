@@ -13,9 +13,9 @@ function Home() {
   })
   
   return(
-    <div>
+    <div className=" grid grid-cols-3 gap-3 w-2/3 mx-auto mt-10">
       {guides.map(guide => 
-        <Guide guide= {guide} />
+        <Guide key= {guide.id} guide= {guide} />
         )}
     </div>
   )

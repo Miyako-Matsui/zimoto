@@ -1,19 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { fetchGuidesThunk } from '../actions'
+import '../index.css'
 
 function Guide({guide}) {
-  const {name, bio, language, fee, contactNumber, email} = guide
+  const {name, averageRating} = guide
   return(
-    <div>
-      <h1> {name} </h1>
-      <ul>
-        <li> Language: {language} </li>
-        <li> Fee: {fee} </li>
-        <li> Contact number: {contactNumber} </li>
-        <li> Email: {email} </li>
-      </ul>
-      <p> {bio} </p>
+    <div className=' rounded shadow-md p-2 m-2'>
+      <h1 className=" text-xl"> {name} </h1>
+      <h2> Rating: {averageRating} </h2>
     </div>
   )
 }
