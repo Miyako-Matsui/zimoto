@@ -1,18 +1,37 @@
-import { getFruits } from '../apis/fruits'
+import { getGuides } from '../apis/guides'
 
-export const SET_FRUITS = 'SET_FRUITS'
+export const SET_guideS = 'SET_guideS'
 
-export function setFruits(fruits) {
+export function setGuides(guides) {
   return {
-    type: SET_FRUITS,
-    payload: fruits,
+    type: SET_guideS,
+    payload: guides,
   }
 }
 
-export function fetchFruits() {
+export function fetchguides() {
   return (dispatch) => {
-    return getFruits().then((fruits) => {
-      dispatch(setFruits(fruits))
+    return getguides().then((guides) => {
+      dispatch(setguides(guides))
+    })
+  }
+}
+
+//Reviews
+import { getReviewsApi } from '../apis/reviews'
+export const SET_REVIEWS = 'SET_REVIEWS'
+
+export function setReviewsAction(reviews) {
+  return {
+    type: SET_REVIEWS,
+    payload: reviews,
+  }
+}
+
+export function fetchReviewsThunk() {
+  return (dispatch) => {
+    return getReviewsApi().then((exercises) => {
+      dispatch(setReviewsAction(exercises))
     })
   }
 }
