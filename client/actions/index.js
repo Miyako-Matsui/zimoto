@@ -1,18 +1,18 @@
-import { getGuides } from '../apis/guides'
+import { fetchGuides } from '../apis/guides'
 
-export const SET_guideS = 'SET_guideS'
+export const SET_GUIDES = 'SET_GUIDES'
 
 export function setGuides(guides) {
   return {
-    type: SET_guideS,
+    type: SET_GUIDES,
     payload: guides,
   }
 }
 
-export function fetchguides() {
+export function fetchGuidesThunk() {
   return (dispatch) => {
-    return getguides().then((guides) => {
-      dispatch(setguides(guides))
+    return fetchGuides().then((guides) => {
+      dispatch(setGuides(guides))
     })
   }
 }

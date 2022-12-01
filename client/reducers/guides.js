@@ -1,11 +1,11 @@
-import { SET_guideS } from '../actions'
+import { SET_GUIDES } from '../actions'
 
 const initialState = []
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
-    case SET_guideS:
+    case SET_GUIDES:
       return payload
     default:
       return state
