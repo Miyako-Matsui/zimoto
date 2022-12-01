@@ -6,6 +6,8 @@ const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
+// const profilesRouter
+
 server.get('*', (req, res) => {
   res.sendFile(path.resolve('server/public/index.html'))
 })
