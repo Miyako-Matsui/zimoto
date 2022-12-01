@@ -30,8 +30,8 @@ export function setReviewsAction(reviews) {
 
 export function fetchReviewsThunk() {
   return (dispatch) => {
-    return getReviewsApi().then((exercises) => {
-      dispatch(setReviewsAction(exercises))
+    return getReviewsApi().then((reviews) => {
+      dispatch(setReviewsAction(reviews))
     })
   }
 }
