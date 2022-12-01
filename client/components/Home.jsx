@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { fetchGuidesThunk } from '../actions'
+import Guide from "./Guide";
 
 function Home() {
+  const dispatch = useDispatch()
+  const guides = useSelector(state => state.guides)
+
+  useEffect( () => {
+    dispatch(fetchGuidesThunk())
+  })
+  
   return(
     <div>
-      <h1> Home </h1>
+      {guides.map(guide => 
+        <Guide guide= {guide} />
+        )}
     </div>
   )
 }
