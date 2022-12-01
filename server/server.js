@@ -10,4 +10,6 @@ server.use(express.static(path.join(__dirname, 'public')))
 
 server.use('/api/v1/guides', guideRoutes)
 
+server.use(express.static(path.join(__dirname, 'public')))
+
 module.exports = server
