@@ -1,14 +1,14 @@
 const express = require('express')
 const path = require('path')
 
-const guideRoutes = require('./routes/reviews')
+const reviewRoutes = require('./routes/reviews')
 
 const server = express()
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
-server.use('/api/v1/reviews', guideRoutes)
+server.use('/api/v1/reviews', reviewRoutes)
 server.get('*', (req, res) => {
   res.sendFile(path.resolve('server/public/index.html'))
 })
