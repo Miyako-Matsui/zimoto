@@ -14,8 +14,8 @@ function deleteReview(id, db = connection) {
   return db('reviews').where({ id: id }).del()
 }
 
-function getAllReviews(id, db = connection) {
-  return db('reviews').select().where({ id: id })
+function getReviewsByGuideId(guideId, db = connection) {
+  return db('reviews').select().where('guide_id', guideId)
 }
 // function getAllReviews(db = connection) {
 //   return db('reviews').select()
@@ -24,5 +24,5 @@ module.exports = {
   addReview,
   editReview,
   deleteReview,
-  getAllReviews,
+  getReviewsByGuideId,
 }

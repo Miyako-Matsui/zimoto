@@ -36,10 +36,11 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
-router.get('/reviews/:id', (req, res) => {
-  db.getAllReviews(Number(req.params.id))
+router.get('/:guideId', (req, res) => {
+  const id = req.params.guideId
+  db.getReviewsByGuideId(id)
     .then((results) => {
-      res.json({ reviews: results.map((review) => review) })
+      res.json(results.map((review) => review))
     })
     .catch((err) => {
       console.log(err)
