@@ -32,8 +32,8 @@ export async function deleteReviewAPI(reviewId) {
   }
 }
 
-export function getReviewsApi() {
-  return request.get(`${reviewUrl}/reviews`).then((res) => {
+export function getReviewsApi(reviewId) {
+  return request.get(`${reviewUrl}/reviews/${reviewId}`).then((res) => {
     console.log('res.body', res.body)
     return res.body
   })

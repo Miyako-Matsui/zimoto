@@ -36,8 +36,8 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
-router.get('/:id', (req, res) => {
-  db.getAllReviews()
+router.get('/reviews/:id', (req, res) => {
+  db.getAllReviews(Number(req.params.id))
     .then((results) => {
       res.json({ reviews: results.map((review) => review) })
     })
@@ -46,16 +46,5 @@ router.get('/:id', (req, res) => {
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
-
-// router.get('/', (req, res) => {
-//   db.getAllReviews()
-//     .then((results) => {
-//       res.json({ reviews: results.map((review) => review) })
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//       res.status(500).json({ message: 'Something went wrong' })
-//     })
-// })
 
 module.exports = router

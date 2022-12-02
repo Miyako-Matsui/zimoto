@@ -28,9 +28,9 @@ export function setReviewsAction(reviews) {
   }
 }
 
-export function fetchReviewsThunk() {
+export function fetchReviewsThunk(reviewId) {
   return (dispatch) => {
-    getReviewsApi()
+    getReviewsApi(reviewId)
       .then((reviews) => {
         dispatch(setReviewsAction(reviews))
       })

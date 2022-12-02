@@ -15,9 +15,7 @@ function deleteReview(id, db = connection) {
 }
 
 function getAllReviews(id, db = connection) {
-  return db('reviews')
-    .select()
-    .where({ id: `${id}` })
+  return db('reviews').select().where({ id: id })
 }
 // function getAllReviews(db = connection) {
 //   return db('reviews').select()
