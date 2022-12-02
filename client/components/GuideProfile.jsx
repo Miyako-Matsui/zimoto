@@ -16,6 +16,7 @@ function GuideProfile() {
   return (
     <>
       <div>
+        {}
         {/* <h1>This is a profile!</h1>
         <h2>{name}</h2>
         <h2>Country</h2>
