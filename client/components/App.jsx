@@ -21,7 +21,6 @@ function App() {
         <Route path="/profiles/:id" element={<GuideProfile />} />
         <Route path="/reviews/reviews/:id" element={<Review />} />
       </Routes>
-      <GuideProfile />
     </>
   )
 }
