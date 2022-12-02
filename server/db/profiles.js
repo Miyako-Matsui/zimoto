@@ -8,6 +8,8 @@ function getAGuide(id, db = connection) {
     .first()
 }
 
+// function addAGuide()
+
 module.exports = {
   getAGuide,
 }
