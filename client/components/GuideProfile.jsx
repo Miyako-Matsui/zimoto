@@ -19,29 +19,22 @@ function GuideProfile() {
       })
   }, [])
 
-  console.log(guide)
-
-
   return (
     <>
-      <div>
-        <h2>{guide}</h2>
-        {/* <h2>{guide.name}</h2>
-        <h2>Country</h2>
-        <p>{guid}</p>
-        <h2>City</h2>
-        <p>{city}</p>
-        <h2>Bio</h2>
-        <p>{bio}</p>
-        <h2>Spoken languages</h2>
-        <p>{language}</p>
-        <h2>Fee</h2>
-        <p>{fee}</p>
-        <h2>Contact Number</h2>
-        <p>{contact_number}</p>
-        <h2>Email</h2>
-        <p>{email}</p> */}
-      </div>
+      <h2>Name: {guide?.name}</h2>
+      <h2>Country: {guide?.country}</h2>
+      <h2>City</h2>
+      <p>{guide?.city}</p>
+      <h2>Bio:</h2>
+      <p>{guide?.bio}</p>
+      <h2>Spoken languages:</h2>
+      <ul>
+        <li>{guide?.language}</li>
+      </ul>
+      <h2>Fee: {guide?.fee}</h2>
+      <h2>Contact Number: {guide?.contactNumber}</h2>
+      <h2>Email: {guide?.email}</h2>
+      <NewReview />
     </>
   )
 }
