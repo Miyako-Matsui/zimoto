@@ -1,8 +1,9 @@
-import { getGuides } from '../apis/guides'
 import {insertReviewAPI, deleteReviewAPI, updateReviewAPI} from '../apis/reviews'
 
 //guides
-export const SET_guideS = 'SET_guideS'
+import { fetchGuides } from '../apis/guides'
+
+export const SET_GUIDES = 'SET_GUIDES'
 
 //reviews
 export const SET_REVIEWS = 'SET_REVIEWS'
@@ -12,15 +13,15 @@ export const REMOVE_REVIEWS = 'REMOVE_REVIEWS'
 
 export function setGuides(guides) {
   return {
-    type: SET_guideS,
+    type: SET_GUIDES,
     payload: guides,
   }
 }
 
-export function fetchguides() {
+export function fetchGuidesThunk() {
   return (dispatch) => {
-    return getguides().then((guides) => {
-      dispatch(setguides(guides))
+    return fetchGuides().then((guides) => {
+      dispatch(setGuides(guides))
     })
   }
 }
