@@ -23,23 +23,29 @@ function GuideProfile() {
 
   return (
     <>
-    <div className='font-[Lora]'>
-      <h2>Name: {guide?.name}</h2>
-      <h2>Country: {guide?.country}</h2>
-      <h2>City</h2>
-      <p>{guide?.city}</p>
-      <h2>Bio:</h2>
-      <p>{guide?.bio}</p>
-      <h2>Spoken languages:</h2>
-      <ul>
-        <li>{guide?.language}</li>
-      </ul>
-      <h2>Fee: {guide?.fee}</h2>
-      <h2>Contact Number: {guide?.contactNumber}</h2>
-      <h2>Email: {guide?.email}</h2>
-      <Review guideId={id} />
-      <NewReview />
-    </div>
+      <div className="font-[Lora] bg-[#C2DEDC] p-8 text-xl ">
+        <div className="p-2">
+          <h2>Name:</h2>
+          <p>{guide?.name}</p>
+          <h2>Country:</h2>
+          <p>{guide?.country}</p>
+          <h2>City:</h2>
+          <p>{guide?.city}</p>
+        </div>
+
+        <div className="p-2">
+          <h2>Bio:{guide?.bio}</h2>
+          <h2>Spoken languages:</h2>
+          <ul>
+            <li>{guide?.language}</li>
+          </ul>
+          <h2>Fee: {guide?.fee}</h2>
+          <h2>Contact Number: {guide?.contactNumber}</h2>
+          <h2>Email: {guide?.email}</h2>
+        </div>
+        <Review guideId={id} />
+        <NewReview />
+      </div>
     </>
   )
 }
