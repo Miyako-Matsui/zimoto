@@ -36,11 +36,15 @@ export function setReviewsAction(reviews) {
   }
 }
 
-export function fetchReviewsThunk() {
+export function fetchReviewsThunk(reviewId) {
   return (dispatch) => {
-    return getReviewsApi().then((exercises) => {
-      dispatch(setReviewsAction(exercises))
-    })
+    getReviewsApi(reviewId)
+      .then((reviews) => {
+        dispatch(setReviewsAction(reviews))
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
   }
 }
 
