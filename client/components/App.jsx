@@ -17,7 +17,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profiles/:id" element={<GuideProfile />} />
-        <Route path="/reviews/reviews/:id" element={<Review />} />
       </Routes>
     </div>
     </>
