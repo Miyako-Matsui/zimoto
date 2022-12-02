@@ -8,9 +8,9 @@ function Filters() {
   // const [rating, setRating] = useState()
   
   const [filters, setFilters] = useState({
-    country: 'Any',
-    city: 'Any',
-    language: 'Any',
+    country: '',
+    city: '',
+    language: '',
     minFee: 0,
     maxFee: 100,
     minRating: 0,
@@ -18,21 +18,6 @@ function Filters() {
   })
 
   const formConfig = [
-    {
-      keyName: 'country',
-      displayName: 'Country',
-      type: 'text'
-    },
-    {
-      keyName: 'city',
-      displayName: 'City',
-      type: 'text'
-    },
-    {
-      keyName: 'language',
-      displayName: 'Language',
-      type: 'text'
-    },
     {
       keyName: 'minFee',
       displayName: 'Fee from',
@@ -53,6 +38,24 @@ function Filters() {
       displayName: 'Rating to',
       type: 'number'
     },
+    {
+      keyName: 'country',
+      displayName: 'Country',
+      type: 'text',
+      placeHolder: 'Any'
+    },
+    {
+      keyName: 'city',
+      displayName: 'City',
+      type: 'text',
+      placeHolder: 'Any'
+    },
+    {
+      keyName: 'language',
+      displayName: 'Language',
+      type: 'text',
+      placeHolder: 'Any'
+    },
   ]
 
   function handleSubmit(e) {
@@ -68,12 +71,12 @@ function Filters() {
   }
 
   return(
-    <div >
-      <form onSubmit={handleSubmit} className=" grid grid-cols-2 gap-1">
+    <div className=" flex justify-center">
+      <form onSubmit={handleSubmit} className=" grid grid-cols-2">
         {formConfig.map(field => 
-          <div key ={field.keyName} className=" flex justify-end" >
+          <div key ={field.keyName} className=" flex justify-end p-2" >
             <label htmlFor={field.keyName} className=" px-2"> {field.displayName}: </label>
-            <input type= {field.type} name={field.keyName} value={filters[field.keyName]} onChange= {handleChange}/>
+            <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder={field.placeHolder} onChange= {handleChange}/>
           </div>
         )}
 
