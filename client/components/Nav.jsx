@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Nav() {
     return (
-    <nav>
+    <nav className='flex'>
       <p><Link to='/'>Home</Link></p>
     </nav>
   )
