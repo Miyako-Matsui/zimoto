@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import React, { useEffect } from 'react'
 import { fetchAGuide } from '../apis/individualGuide'
 import '../index.css'
+import NewReview from './NewReview'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
@@ -39,6 +40,7 @@ function GuideProfile() {
       <h2>Fee: {guide?.fee}</h2>
       <h2>Contact Number: {guide?.contactNumber}</h2>
       <h2>Email: {guide?.email}</h2>
+      <NewReview/>
     </>
   )
 }

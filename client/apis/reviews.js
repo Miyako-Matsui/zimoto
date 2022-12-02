@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const reviewUrl = '/api/v1'
+const reviewUrl = '/api/v1/reviews'
 
 // POST a review
 export async function insertReviewAPI(review) {
