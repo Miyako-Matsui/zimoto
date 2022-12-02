@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const reviewUrl = '/api/v1'
+const reviewUrl = '/api/v1/reviews'
 
 // POST a review
 export async function insertReviewAPI(review) {
@@ -32,8 +32,9 @@ export async function deleteReviewAPI(reviewId) {
   }
 }
 
-export function getReviewsApi() {
-  return request.get(`${reviewUrl}/reviews`).then((res) => {
-    return res.body.reviews
+export function getReviewsApi(reviewId) {
+  return request.get(`${reviewUrl}/reviews/${reviewId}`).then((res) => {
+    console.log('res.body', res.body)
+    return res.body
   })
 }
