@@ -21,7 +21,6 @@ export default function NewReview() {
       rating: +userRating, 
       guide_id: userId.id, 
     }
-    console.log(newRevObj)
     dispatch(addReviewThunk(newRevObj))
 
     document.getElementById("newReview").value = ""
@@ -50,7 +49,7 @@ export default function NewReview() {
             <input id='newRating' type="range" min="1" max="10" defaultValue='5' className="slider"/>
           </div>
           </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" className='bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' value="Submit" />
       </form>
     </>
   )
