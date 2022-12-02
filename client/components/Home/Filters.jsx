@@ -8,18 +8,56 @@ function Filters() {
   // const [rating, setRating] = useState()
   
   const [filters, setFilters] = useState({
-    country: 'any',
-    city: 'any',
-    language: 'any',
-    feeFrom: 0,
-    feeTo: 100,
-    ratingFrom: 0,
-    ratingTo: 5
+    country: 'Any',
+    city: 'Any',
+    language: 'Any',
+    minFee: 0,
+    maxFee: 100,
+    minRating: 0,
+    maxRating: 5
   })
+
+  const formConfig = [
+    {
+      keyName: 'country',
+      displayName: 'Country',
+      type: 'text'
+    },
+    {
+      keyName: 'city',
+      displayName: 'City',
+      type: 'text'
+    },
+    {
+      keyName: 'language',
+      displayName: 'Language',
+      type: 'text'
+    },
+    {
+      keyName: 'minFee',
+      displayName: 'Fee from',
+      type: 'number'
+    },
+    {
+      keyName: 'maxFee',
+      displayName: 'Fee to',
+      type: 'number'
+    },
+    {
+      keyName: 'minRating',
+      displayName: 'Rating from',
+      type: 'number'
+    },
+    {
+      keyName: 'maxRating',
+      displayName: 'Rating to',
+      type: 'number'
+    },
+  ]
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(e.target.value)
+    console.log(filters)
   }
 
   function handleChange(e) {
@@ -31,8 +69,18 @@ function Filters() {
   }
 
   return(
-    <div className=" bg-slate-100 flex">
-      <form onSubmit={handleSubmit}>
+    <div >
+      <form className=" grid grid-cols-2 gap-1">
+        {formConfig.map(field => 
+          <div key ={field.keyName} className=" flex justify-end" >
+            <label htmlFor={field.keyName} className=" px-2"> {field.displayName}: </label>
+            <input type= {field.type} name={field.keyName} value={filters[field.keyName]} onChange= {handleChange}/>
+          </div>
+        )}
+      </form>
+
+
+      {/* <form onSubmit={handleSubmit} className=" grid grid-cols-4  gap-1">
         <label htmlFor="country"> Country: </label>
         <input type="text" name="country" value={filters.country} onChange= {handleChange}/>
 
@@ -53,7 +101,9 @@ function Filters() {
 
         <label htmlFor="ratingTo"> Rating to: </label>
         <input type="number" name="ratingTo" value={filters.ratingTo} onChange= {handleChange}/>
-      </form>
+
+        <button> Apply filter </button>
+      </form> */}
     </div>
   )
 }
