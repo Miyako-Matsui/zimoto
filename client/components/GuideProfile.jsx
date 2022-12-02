@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import { fetchAGuide } from '../apis/individualGuide'
 import '../index.css'
 
@@ -13,6 +14,10 @@ function GuideProfile() {
     fetchAGuide(id)
       .then((res) => {
         setGuide(res)
+  useEffect(() => {
+    fetchAGuide(3)
+      .then((res) => {
+        console.log(res)
       })
       .catch((err) => {
         console.log(err.message)
@@ -29,6 +34,13 @@ function GuideProfile() {
         {/* <h2>{guide.name}</h2>
         <h2>Country</h2>
         <p>{guid}</p>
+  return (
+    <>
+      <div>
+        {/* <h1>This is a profile!</h1>
+        <h2>{name}</h2>
+        <h2>Country</h2>
+        <p>{country}</p>
         <h2>City</h2>
         <p>{city}</p>
         <h2>Bio</h2>
