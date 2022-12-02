@@ -61,7 +61,6 @@ function Filters() {
   }
 
   function handleChange(e) {
-    console.log('change')
     setFilters({
       ...filters,
       [e.target.name]: e.target.value
@@ -70,7 +69,7 @@ function Filters() {
 
   return(
     <div >
-      <form className=" grid grid-cols-2 gap-1">
+      <form onSubmit={handleSubmit} className=" grid grid-cols-2 gap-1">
         {formConfig.map(field => 
           <div key ={field.keyName} className=" flex justify-end" >
             <label htmlFor={field.keyName} className=" px-2"> {field.displayName}: </label>
@@ -80,32 +79,6 @@ function Filters() {
 
         <button className=" border p-1 w-1/2 justify-self-end"> Apply filter </button>
       </form>
-
-
-      {/* <form onSubmit={handleSubmit} className=" grid grid-cols-4  gap-1">
-        <label htmlFor="country"> Country: </label>
-        <input type="text" name="country" value={filters.country} onChange= {handleChange}/>
-
-        <label htmlFor="city"> City: </label>
-        <input type="text" name="city" value={filters.city} onChange= {handleChange}/>
-
-        <label htmlFor="language"> Language: </label>
-        <input type="text" name="language" value={filters.language} onChange= {handleChange}/>
-
-        <label htmlFor="feeFrom"> Fee from: </label>
-        <input type="number" name="feeFrom" value={filters.feeFrom} onChange= {handleChange}/>
-
-        <label htmlFor="feeFrom"> Fee from: </label>
-        <input type="number" name="fee" value={filters.feeTo} onChange= {handleChange}/>
-
-        <label htmlFor="ratingFrom"> Rating from: </label>
-        <input type="number" name="ratingFrom" value={filters.ratingFrom} onChange= {handleChange}/>
-
-        <label htmlFor="ratingTo"> Rating to: </label>
-        <input type="number" name="ratingTo" value={filters.ratingTo} onChange= {handleChange}/>
-
-        <button> Apply filter </button>
-      </form> */}
     </div>
   )
 }
