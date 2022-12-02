@@ -23,6 +23,7 @@ function GuideProfile() {
 
   return (
     <>
+    <div className='font-[Lora]'>
       <h2>Name: {guide?.name}</h2>
       <h2>Country: {guide?.country}</h2>
       <h2>City</h2>
@@ -38,6 +39,7 @@ function GuideProfile() {
       <h2>Email: {guide?.email}</h2>
       <Review guideId={id} />
       <NewReview />
+    </div>
     </>
   )
 }
