@@ -8,8 +8,11 @@ function getAGuide(id, db = connection) {
     .first()
 }
 
-// function addAGuide()
+function addAGuide(newGuide, db = connection) {
+  return db('guides').insert(newGuide)
+}
 
 module.exports = {
   getAGuide,
+  addAGuide,
 }

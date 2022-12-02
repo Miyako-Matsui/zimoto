@@ -7,3 +7,12 @@ export function fetchGuides() {
     return res.body
   })
 }
+
+export function addGuide(newGuide) {
+  return request
+    .post(rootUrl + '/profiles/add')
+    .send(newGuide)
+    .then((res) => {
+      return res.body
+    })
+}
