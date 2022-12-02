@@ -77,6 +77,8 @@ function Filters() {
             <input type= {field.type} name={field.keyName} value={filters[field.keyName]} onChange= {handleChange}/>
           </div>
         )}
+
+        <button className=" border p-1 w-1/2 justify-self-end"> Apply filter </button>
       </form>
 
 
