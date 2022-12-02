@@ -25,6 +25,7 @@ function GuideProfile() {
   return (
     <>
       <div>
+        <h2>{guide}</h2>
         {/* <h2>{guide.name}</h2>
         <h2>Country</h2>
         <p>{guid}</p>
