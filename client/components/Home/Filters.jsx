@@ -1,4 +1,3 @@
-import { configure } from "@testing-library/react";
 import React, { useState } from "react";
 
 function Filters() {
@@ -12,8 +11,10 @@ function Filters() {
     country: 'any',
     city: 'any',
     language: 'any',
-    fee: 'any',
-    rating: 'any',
+    feeFrom: 0,
+    feeTo: 100,
+    ratingFrom: 0,
+    ratingTo: 5
   })
 
   function handleSubmit(e) {
@@ -22,6 +23,7 @@ function Filters() {
   }
 
   function handleChange(e) {
+    console.log('change')
     setFilters({
       ...filters,
       [e.target.name]: e.target.value
@@ -40,11 +42,17 @@ function Filters() {
         <label htmlFor="language"> Language: </label>
         <input type="text" name="language" value={filters.language} onChange= {handleChange}/>
 
-        <label htmlFor="fee"> Fee: </label>
-        <input type="number" name="fee" value={filters.fee} onChange= {handleChange}/>
+        <label htmlFor="feeFrom"> Fee from: </label>
+        <input type="number" name="feeFrom" value={filters.feeFrom} onChange= {handleChange}/>
 
-        <label htmlFor="rating"> Rating: </label>
-        <input type="number" name="rating" value={filters.rating} onChange= {handleChange}/>
+        <label htmlFor="feeFrom"> Fee from: </label>
+        <input type="number" name="fee" value={filters.feeTo} onChange= {handleChange}/>
+
+        <label htmlFor="ratingFrom"> Rating from: </label>
+        <input type="number" name="ratingFrom" value={filters.ratingFrom} onChange= {handleChange}/>
+
+        <label htmlFor="ratingTo"> Rating to: </label>
+        <input type="number" name="ratingTo" value={filters.ratingTo} onChange= {handleChange}/>
       </form>
     </div>
   )
