@@ -1,26 +1,34 @@
-import React, { useState } from "react";
+import React, {useState}  from "react";
 import {addReviewThunk} from '../actions'
 import { useDispatch } from "react-redux";
+import { useParams } from 'react-router-dom'
+
 export default function NewReview() {
-  // Get ID from url
-  // const id = user.id
   const dispatch = useDispatch()
-  const [state, setState] = useState({})
+  const userId = useParams()
+  
+  
 
   function handleFormSubmit(e){
     e.preventDefault()
     const userReview = document.getElementById("newReview").value
     const userTitle = document.getElementById("newTitle").value
     const userRating = document.getElementById("newRating").value
-    //Post review using ID of Guide to the DB
-    setState({ 
+    
+    const newRevObj = { 
       title: userTitle, 
       text: userReview,
       rating: +userRating, 
-      guide_id: 3, //needs to be changed base on profile
-    })
+      guide_id: userId.id, 
+    }
+    console.log(newRevObj)
+    dispatch(addReviewThunk(newRevObj))
 
-    dispatch(addReviewThunk(state))
+    document.getElementById("newReview").value = ""
+    document.getElementById("newTitle").value = ""
+    document.getElementById("newRating").value = '5'
+    
+
 
   }
 
