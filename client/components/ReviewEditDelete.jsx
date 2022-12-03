@@ -34,14 +34,14 @@ export default function ReviewEditDelete(review) {
 
   return (
     <>
-      <br/>
-      <button type='button' id='editButton' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={showEditForm}>EDIT</button> <br/>
+      
+      <button type='button' id='editButton' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={showEditForm}>EDIT</button> 
 
       {showForm && (
         <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <form onSubmit={handleEdit}>
           <label  className="form-label mb-2 text-gray-700" >
-            Edit Review: <br/>
+            Edit Review: 
             <h5 htmlFor='editTitle'>Title:</h5>
               <textarea id='editTitle'rows="1" cols="50" name="Title" defaultValue={title} className=' form-control
               block
@@ -82,7 +82,7 @@ export default function ReviewEditDelete(review) {
           <label>
             <h5> Rating: </h5>
             <div className="slidecontainer">
-            <input id='editRating' type="range" min="1" max="10" defaultValue={rating} className="slider"/>
+            <input id='editRating' type="range" min="1" max="5" defaultValue={rating} className="slider"/>
             </div>
           </label>
 
@@ -90,9 +90,9 @@ export default function ReviewEditDelete(review) {
         </form>
         </div>
       )}
-
-      <button type='button' id='deleteButton' className='bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handleDelete}>DELETE</button><br/>
-      <br/>
+      <form onSubmit={handleDelete}>
+      <button type='submit' id='deleteButton' className='bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>DELETE</button>
+      </form>
     </>
   )
 }
