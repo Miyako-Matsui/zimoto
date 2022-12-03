@@ -56,7 +56,6 @@ function Filters() {
   function handleSubmit(e) {
     e.preventDefault()
     getFilteredGuides(filters)
-
   }
 
   function handleChange(e) {
