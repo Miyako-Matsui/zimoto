@@ -11,8 +11,12 @@ function getAGuide(id, db = connection) {
 function addAGuide(newGuide, db = connection) {
   return db('guides').insert(newGuide)
 }
+function deleteAGuide(id, db = connection) {
+  return db('guides').where('id', id).del()
+}
 
 module.exports = {
   getAGuide,
   addAGuide,
+  deleteAGuide,
 }

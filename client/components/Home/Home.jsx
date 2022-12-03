@@ -14,7 +14,7 @@ function Home() {
   },[])
   
   return(
-    <div className=" w-2/3 mx-auto">
+    <div className=" w-2/3 mx-auto ">
       <Filters />
 
       <div className=" grid grid-cols-3 gap-3 mt-10">
