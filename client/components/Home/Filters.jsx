@@ -1,12 +1,7 @@
 import React, { useState } from "react";
+import {getFilteredGuides} from '../../apis/guides'
 
 function Filters() {
-  // const [country, setCountry] = useState()
-  // const [city, setCity] = useState()
-  // const [language, setLanguage] = useState()
-  // const [fee, setFee] = useState()
-  // const [rating, setRating] = useState()
-  
   const [filters, setFilters] = useState({
     country: '',
     city: '',
@@ -60,7 +55,8 @@ function Filters() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(filters)
+    getFilteredGuides(filters)
+
   }
 
   function handleChange(e) {

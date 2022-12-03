@@ -15,4 +15,14 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/filter', (req, res) => {
+  db.getFilteredGuides()
+    .then((results) => {
+      res.json(results)
+    })
+    .catch((err) => {
+      res.status(500).json({ message: err.message})
+    })
+})
+
 module.exports = router

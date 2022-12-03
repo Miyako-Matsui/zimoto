@@ -15,4 +15,7 @@ export function addGuide(newGuide) {
     .then((res) => {
       return res.body
     })
+export function getFilteredGuides(queryData) {
+  console.log(queryData)
+  // return request.get(rootUrl + '/guides')
 }
