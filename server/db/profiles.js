@@ -8,6 +8,13 @@ function getAGuide(id, db = connection) {
     .first()
 }
 
+function deleteAGuide(id, db = connection) {
+  return db('guides')
+    .where('id', id)
+    .del()
+}
+
 module.exports = {
   getAGuide,
+  deleteAGuide
 }
