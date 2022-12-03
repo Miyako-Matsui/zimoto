@@ -6,30 +6,88 @@ import { useNavigate } from 'react-router-dom'
 function addProfile() {
   const navigate = useNavigate()
 
-  const newGuide = {
-    name: 'Buster Brown',
-    bio: "He's the man",
-    language: 'Space-Elvish, Romulyn',
-    fee: 100,
-    contact_number: 455454544444,
-    email: 'B.B@gmail.com',
+  const [guideData, setGuideData] = useState({
+    name: '',
+    bio: '',
+    language: '',
+    fee: '',
+    contact_number: '',
+    email: ''
+  })
+
+  const handleChange = (evt) => {
+
+    setGuideData({
+      ...guideData,
+      [evt.target.name]: evt.target.value,
+    })
   }
 
-  useEffect(() => {
-    addGuide(newGuide)
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
-  }, [])
+  const handleSubmit = async (evt) => {
 
-  const testButton = () => {
-    return navigate('/')
+    evt.preventDefault()
+
+    setGuideData(Number(guideData.contact_number))
+
+    await addGuide(guideData).then((res) => {
+      console.log(res)
+
+      navigate('/')
+    })
+
+    console.log('done', guideData)
   }
 
-  return <button onClick={testButton}>Go home</button>
+  // useEffect(() => {
+  //   addGuide(newGuide)
+  //     .then((res) => {
+  //       console.log(res)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message)
+  //     })
+  // }, [])
+
+  return (
+    <>
+      <h2>Please fill this out:</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+
+          <label>Name</label>
+          <input type='text' id='name' name='name' defaultValue={guideData.name} onChange={handleChange} />
+        </div>
+        <div>
+
+          <label>Bio</label>
+          <input type='text' id='bio' name='bio' defaultValue={guideData.bio} onChange={handleChange} />
+        </div>
+        <div>
+
+          <label>Language</label>
+          <input type='text' id='language' name='language' defaultValue={guideData.language} onChange={handleChange} />
+        </div>
+        <div>
+
+          <label>Fee</label>
+          <input type='text' id='fee' name='fee' defaultValue={guideData.fee} onChange={handleChange} />
+        </div>
+        <div>
+
+          <label>Contact Number</label>
+          <input type='number' id='contact_number' name='contact_number' defaultValue={guideData.contact_number} onChange={handleChange} />
+        </div>
+        <div>
+
+          <label>Email</label>
+          <input type='text' id='email' name='email' defaultValue={guideData.email} onChange={handleChange} />
+        </div>
+        <button>Save</button>
+      </form>
+    </>
+
+  )
+
 }
 
 export default addProfile
