@@ -14,9 +14,6 @@ function Review({ guideId }) {
 
   return (
     <>
-      <div>
-        <h1> Reviews </h1>
-      </div>
           <div>
           <h1> Reviews: </h1>
           {reviews.length > 0 && reviews.map((review) => {
