@@ -7,7 +7,7 @@ export default function NewReview() {
   const dispatch = useDispatch()
   const userId = useParams()
 
-  function handleFormSubmit(e) {
+  function handleFormSubmit() {
     const userReview = document.getElementById('newReview').value
     const userTitle = document.getElementById('newTitle').value
     const userRating = document.getElementById('newRating').value
