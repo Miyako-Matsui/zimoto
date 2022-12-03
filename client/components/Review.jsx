@@ -1,3 +1,4 @@
+import ReviewEditDelete from './ReviewEditDelete'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchReviewsThunk } from '../actions'
@@ -12,18 +13,25 @@ function Review({ guideId }) {
   const reviews = useSelector((globalState) => globalState.reviews)
 
   return (
-    <div>
-      <h1> Reviews: </h1>
-      {reviews.map((review) => {
-        return (
-          <div key={review.key}>
-            <p>Rating:{review.rating}</p>
-            <p>Title:{review.title}</p>
-            <p>Text:{review.text}</p>
-          </div>
+    <>
+      <div>
+        <h1> Reviews </h1>
+      </div>
+          <div>
+          <h1> Reviews: </h1>
+          {reviews.length > 0 && reviews.map((review) => {
+            return (
+              <div key={review.id}>
+                <p>Rating:{review.rating}</p>
+                <p>Title:{review.title}</p>
+                <p>Text:{review.text}</p>
+                <ReviewEditDelete review={review} />
+              </div>
         )
       })}
-    </div>
+      </div>
+    </>
+    
   )
 }
 

@@ -6,7 +6,8 @@ import NewReview from './NewReview'
 import Review from './Review'
 
 function GuideProfile() {
-  const [guide, setGuide] = useState([])
+  
+  const [ guide, setGuide ] = useState([])
 
   const { id } = useParams()
 
