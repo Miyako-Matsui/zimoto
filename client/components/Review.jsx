@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import ReviewEditDelete from './ReviewEditDelete'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -20,13 +19,13 @@ function Review({ guideId }) {
       </div>
           <div>
           <h1> Reviews: </h1>
-          {reviews.map((review) => {
+          {reviews.length > 0 && reviews.map((review) => {
             return (
-              <div key={review.key}>
+              <div key={review.id}>
                 <p>Rating:{review.rating}</p>
                 <p>Title:{review.title}</p>
                 <p>Text:{review.text}</p>
-                <ReviewEditDelete/>
+                <ReviewEditDelete review={review} />
               </div>
         )
       })}

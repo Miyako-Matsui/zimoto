@@ -10,7 +10,6 @@ export default function NewReview() {
   
 
   function handleFormSubmit(e){
-    e.preventDefault()
     const userReview = document.getElementById("newReview").value
     const userTitle = document.getElementById("newTitle").value
     const userRating = document.getElementById("newRating").value
@@ -36,12 +35,12 @@ export default function NewReview() {
       <form onSubmit={handleFormSubmit}>
         <label>
           Leave a Review: <br/>
-          <p htmlFor='newReview'>Title:</p>
-          <textarea id='newTitle'rows="1" cols="50" name="Title" placeholder="Title"/>
+          <p htmlFor='newTitle'>Title:</p>
+          <textarea id='newTitle'rows="1" cols="50" name="Title" placeholder="Please leave a title"/>
           </label>
           <label>
           <p htmlFor='newReview'>Review:</p>
-          <textarea id='newReview'rows="6" cols="75" name="Review" placeholder="Review"/>
+          <textarea id='newReview'rows="6" cols="75" name="Review" placeholder="Please leave a Review"/>
           </label>
           <label>
           <p> Rating: </p>
