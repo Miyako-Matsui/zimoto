@@ -8,22 +8,62 @@ function Filters() {
   // const [rating, setRating] = useState()
   
   const [filters, setFilters] = useState({
-    country: 'any',
-    city: 'any',
-    language: 'any',
-    feeFrom: 0,
-    feeTo: 100,
-    ratingFrom: 0,
-    ratingTo: 5
+    country: '',
+    city: '',
+    language: '',
+    minFee: 0,
+    maxFee: 100,
+    minRating: 0,
+    maxRating: 5
   })
+
+  const formConfig = [
+    {
+      keyName: 'minFee',
+      displayName: 'Fee from',
+      type: 'number'
+    },
+    {
+      keyName: 'maxFee',
+      displayName: 'Fee to',
+      type: 'number'
+    },
+    {
+      keyName: 'minRating',
+      displayName: 'Rating from',
+      type: 'number'
+    },
+    {
+      keyName: 'maxRating',
+      displayName: 'Rating to',
+      type: 'number'
+    },
+    {
+      keyName: 'country',
+      displayName: 'Country',
+      type: 'text',
+      placeHolder: 'Any'
+    },
+    {
+      keyName: 'city',
+      displayName: 'City',
+      type: 'text',
+      placeHolder: 'Any'
+    },
+    {
+      keyName: 'language',
+      displayName: 'Language',
+      type: 'text',
+      placeHolder: 'Any'
+    },
+  ]
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(e.target.value)
+    console.log(filters)
   }
 
   function handleChange(e) {
-    console.log('change')
     setFilters({
       ...filters,
       [e.target.name]: e.target.value
@@ -31,28 +71,16 @@ function Filters() {
   }
 
   return(
-    <div className=" bg-slate-100 flex">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="country"> Country: </label>
-        <input type="text" name="country" value={filters.country} onChange= {handleChange}/>
+    <div className=" flex justify-center">
+      <form onSubmit={handleSubmit} className=" grid grid-cols-2">
+        {formConfig.map(field => 
+          <div key ={field.keyName} className=" flex justify-end p-2" >
+            <label htmlFor={field.keyName} className=" px-2"> {field.displayName}: </label>
+            <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder={field.placeHolder} onChange= {handleChange}/>
+          </div>
+        )}
 
-        <label htmlFor="city"> City: </label>
-        <input type="text" name="city" value={filters.city} onChange= {handleChange}/>
-
-        <label htmlFor="language"> Language: </label>
-        <input type="text" name="language" value={filters.language} onChange= {handleChange}/>
-
-        <label htmlFor="feeFrom"> Fee from: </label>
-        <input type="number" name="feeFrom" value={filters.feeFrom} onChange= {handleChange}/>
-
-        <label htmlFor="feeFrom"> Fee from: </label>
-        <input type="number" name="fee" value={filters.feeTo} onChange= {handleChange}/>
-
-        <label htmlFor="ratingFrom"> Rating from: </label>
-        <input type="number" name="ratingFrom" value={filters.ratingFrom} onChange= {handleChange}/>
-
-        <label htmlFor="ratingTo"> Rating to: </label>
-        <input type="number" name="ratingTo" value={filters.ratingTo} onChange= {handleChange}/>
+        <button className=" border p-1 w-1/2 justify-self-end"> Apply filter </button>
       </form>
     </div>
   )
