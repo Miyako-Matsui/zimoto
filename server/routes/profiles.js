@@ -17,18 +17,27 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.post('/add', (req, res) => {
+  db.addAGuide(req.body)
+    .then((response) => {
+      res.json(response) // route will respond with this it's just a number given by the insert in db
+    })
+    .catch((err) => {
+      res.status(500).json({ message: err.message })
+    })
+})
 // DELETE /api/v1/profiles/
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params
 
   db.deleteAGuide(id)
-  .then(numOfDeletes => {
-    res.json({deletes: numOfDeletes})
-  })
-  .catch(err => {
-    return console.error(err.message)
-  })
+    .then((numOfDeletes) => {
+      res.json({ deletes: numOfDeletes })
+    })
+    .catch((err) => {
+      return console.error(err.message)
+    })
 })
 
 module.exports = router
