@@ -1,4 +1,4 @@
-import { SET_GUIDES } from '../actions'
+import { SET_GUIDES } from '../actions/guides'
 
 const initialState = []
 

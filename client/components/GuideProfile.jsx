@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchAGuide } from '../apis/individualGuide'
 import '../index.css'
+import ProfileDelete from './ProfileDelete'
 import NewReview from './NewReview'
 import Review from './Review'
 
@@ -50,6 +51,7 @@ function GuideProfile() {
           </div>
         </div>
       </div>
+      <ProfileDelete />
       <Review guideId={id} />
       <NewReview />
     </div>
