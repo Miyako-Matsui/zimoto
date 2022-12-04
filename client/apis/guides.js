@@ -16,3 +16,20 @@ export function addGuide(newGuide) {
       return res.body
     })
 }
+
+export function fetchFilteredGuides(queryData) {
+  let queryString = '?'
+
+  for (const key in queryData) {
+      queryString = queryString.concat(key, '=', queryData[key], '&')
+  }
+  queryString = queryString.slice(0, -1)
+  
+  return request.get(rootUrl + '/guides/filter' + queryString)
+    .then(res => {
+      return res.body
+    })
+}
+
+
+
