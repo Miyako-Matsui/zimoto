@@ -12,7 +12,7 @@ function Guide({guide}) {
         <div className=" p-4 ">
           <h1 className=" text-xl"> {name} </h1>
           <h2> Rating: {averageRating} </h2>
-          <h2> Fee: ${fee} per day </h2>
+          <h2> Fee: ${fee}/hour </h2>
         </div>
       </div>
     </Link>
