@@ -1,6 +1,7 @@
 import React from 'react'
 // import '../index.css'
 import NewReview from './NewReview'
+import ProfileDelete from './ProfileDelete'
 
 function Profile() {
   return (
