@@ -40,4 +40,14 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.patch('/:id', (req, res) => {
+  const { id } = req.params
+  const newDetails = req.body
+
+  db.updateAGuide(id, newDetails)
+    .then(() => db.getAGuide(id))
+    .then(theOneGuide => res.json(theOneGuide))
+    .catch(err => res.status(500).json({ message: err.message }))
+})
+
 module.exports = router
