@@ -27,48 +27,53 @@ export default function NewReview() {
 
   return (
     <>
-      <div className="p-2">
-        <form onSubmit={handleFormSubmit}>
-          <label>
-            Leave a Review: <br />
-            <p htmlFor="newTitle">Title:</p>
-            <textarea
-              id="newTitle"
-              rows="1"
-              cols="50"
-              name="Title"
-              placeholder="Title"
-            />
+      <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <form onSubmit={handleFormSubmit}>
+        <label className="form-label mb-2 text-gray-700" >
+          Leave a Review: <br/>
+          <h5 htmlFor='newTitle'>Title:</h5>
+          <textarea id='newTitle'rows="1" cols="50" name="Title" placeholder="Please leave a title" className=' form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'/>
           </label>
-          <label>
-            <p htmlFor="newReview">Review:</p>
-            <textarea
-              id="newReview"
-              rows="6"
-              cols="75"
-              name="Review"
-              placeholder="Review"
-            />
+          <label className="form-label mb-2 text-gray-700">
+          <h5 htmlFor='newReview'>Review:</h5>
+          <textarea id='newReview'rows="6" cols="75" name="Review" placeholder="Please leave a Review" className=' form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'/>
           </label>
-          <label>
-            <p> Rating: </p>
-            <div className="slidecontainer">
-              <input
-                id="newRating"
-                type="range"
-                min="1"
-                max="10"
-                defaultValue="5"
-                className="slider"
-              />
-            </div>
+          <label className="form-label mb-2 text-gray-700">
+          <h5> Rating: </h5>
+          <div className="slidecontainer">
+            <input id='newRating' type="range" min="1" max="10" defaultValue='5' className="slider"/>
+          </div>
           </label>
-          <input
-            type="submit"
-            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            value="Submit"
-          />
-        </form>
+        <input type="submit" className='bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' value="Submit" />
+      </form>
       </div>
     </>
   )
