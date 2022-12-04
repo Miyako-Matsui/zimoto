@@ -72,13 +72,13 @@ function Filters() {
     <div className=" flex justify-center">
       <form onSubmit={handleSubmit} className=" grid grid-cols-2">
         {formConfig.map(field => 
-          <div key ={field.keyName} className=" flex justify-end p-2" >
+          <div key ={field.keyName} className=" flex justify-end pb-4" >
             <label htmlFor={field.keyName} className=" px-2"> {field.displayName}: </label>
             <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder= 'Any' onChange= {handleChange}/>
           </div>
         )}
 
-        <button className=" border p-1 w-1/2 justify-self-end"> Apply filter </button>
+        <button className=" bg-slate-900/20 hover:bg-slate-900/40 duration-150 p-1 w-1/2 justify-self-end"> Apply filter </button>
       </form>
     </div>
   )
