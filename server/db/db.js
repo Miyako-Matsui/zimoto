@@ -3,7 +3,17 @@ const connection = require('./connection')
 
 function guideJoinTable(db = connection){
   return db('guides')
-    .select('*', 'guides.id AS guide_id', 'contact_number AS contactNumber')
+    .select(
+      'guides.id AS id',
+      'name',
+      'bio',
+      'language',
+      'fee',
+      'contact_number AS contactNumber',
+      'email', 
+      'country',
+      'city',
+      )
     .leftJoin('reviews', 'guides.id', 'reviews.guide_id')
     .leftJoin('locations', 'locations.guide_id', 'guides.id')
     .avg('rating AS averageRating')
@@ -11,11 +21,14 @@ function guideJoinTable(db = connection){
 }
 
 function getGuides(db = connection) {
-  return db('guides')
-    .leftJoin('reviews', 'guides.id', 'reviews.guide_id')
-    .select('*', 'guides.id AS guide_id', 'contact_number AS contactNumber')
-    .avg('rating AS averageRating')
-    .groupBy('guide_id')
+  return db.select(
+    'id',
+    'name',
+    'fee',
+    'averageRating'
+  )
+    .from(guideJoinTable())
+    .limit(20)
 }
 
 function getFilteredGuides(filters, db = connection) {
@@ -32,33 +45,34 @@ function getFilteredGuides(filters, db = connection) {
     },
     {
       key: 'averageRating',
-      operator: '<',
-      value: filters.maxRating
+      operator: '<=',
+      value: Number(filters.maxRating)
     },
     {
       key: 'averageRating',
-      operator: '>',
-      value: filters.minRating
+      operator: '>=',
+      value: Number(filters.minRating)
     },
     {
       key: 'fee',
-      operator: '<',
-      value: filters.maxFee
+      operator: '<=',
+      value: Number(filters.maxFee)
     },
     {
       key: 'fee',
-      operator: '>',
-      value: filters.minFee
+      operator: '>=',
+      value: Number(filters.minFee)
     },
   ]
-  const query = db.select('id', 'name', 'averageRating').from(guideJoinTable())
-  // if (filters.language) {
-  //   query = query.where('language', 'like', '%' + filters.language + '%')
-  // }
-  filterObjs.forEach(filter => {
-    query = query.where(filter.key, filter.operator, filter.value)
-  })
-  return query
+
+  return db.select().from(guideJoinTable())
+    .modify(queryBuilder => {
+      filterObjs.forEach(filter => {
+        if (filter.value) {
+          queryBuilder.where(filter.key, filter.operator, filter.value)
+        }
+      })
+    })
 }
 
 module.exports = {
