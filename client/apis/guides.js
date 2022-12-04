@@ -26,7 +26,7 @@ export function deleteGuide(id) {
   })
 }
 
-export function getFilteredGuides(queryData) {
+export function fetchFilteredGuides(queryData) {
   let queryString = '?'
 
   for (const key in queryData) {
