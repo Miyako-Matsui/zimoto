@@ -10,7 +10,7 @@ import AddProfile from './AddProfile'
 function App() {
   return (
     <>
-      <div className="bg-[#C2DEDC] absolute top-0 bottom-0 left-0 right-0">
+      <div className="bg-[#C2DEDC] w-full h-full min-h-screen">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -1,20 +1,34 @@
 import React, { useState } from "react";
+import { filterGuidesThunk } from '../../actions/guides'
+import { useDispatch } from 'react-redux'
+import { useEffect } from "react";
+import { fetchCountryList } from "../../apis/countries";
 
 function Filters() {
-  // const [country, setCountry] = useState()
-  // const [city, setCity] = useState()
-  // const [language, setLanguage] = useState()
-  // const [fee, setFee] = useState()
-  // const [rating, setRating] = useState()
+  const dispatch = useDispatch()
+
+  const [countriesData, setCountriesData] = useState([])
+  const [cities, setCity] = useState([])
   
+  const getCountries = () => countriesData.map(item => item.country)
+  const getcities = (country) => {
+    console.log({country, countriesData});
+    if(countriesData.length !== 0 && country !== '') {
+      const countryData = countriesData.find(item => item.country === country)
+      return countryData.cities
+    } else {
+      return []
+    }
+  }
+
   const [filters, setFilters] = useState({
     country: '',
     city: '',
     language: '',
-    minFee: 0,
-    maxFee: 100,
-    minRating: 0,
-    maxRating: 5
+    minFee: '',
+    maxFee: '',
+    minRating: '',
+    maxRating: ''
   })
 
   const formConfig = [
@@ -26,7 +40,7 @@ function Filters() {
     {
       keyName: 'maxFee',
       displayName: 'Fee to',
-      type: 'number'
+      type: 'number',
     },
     {
       keyName: 'minRating',
@@ -41,26 +55,25 @@ function Filters() {
     {
       keyName: 'country',
       displayName: 'Country',
-      type: 'text',
-      placeHolder: 'Any'
+      type: 'selection',
+      options: getCountries()
     },
     {
       keyName: 'city',
       displayName: 'City',
-      type: 'text',
-      placeHolder: 'Any'
+      type: 'selection',
+      options: getcities(filters.country)
     },
     {
       keyName: 'language',
       displayName: 'Language',
       type: 'text',
-      placeHolder: 'Any'
     },
   ]
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(filters)
+    dispatch(filterGuidesThunk(filters))
   }
 
   function handleChange(e) {
@@ -70,17 +83,40 @@ function Filters() {
     })
   }
 
+  // List of countries features
+  
+
+  useEffect(async () => {
+    const result = await fetchCountryList()
+    setCountriesData(result)
+  }, [])
+
   return(
     <div className=" flex justify-center">
-      <form onSubmit={handleSubmit} className=" grid grid-cols-2">
+      <form onSubmit={handleSubmit} className=" grid grid-cols-2 w-1/2">
+
         {formConfig.map(field => 
-          <div key ={field.keyName} className=" flex justify-end p-2" >
+          <div key ={field.keyName} className=" flex justify-end pb-4" >
             <label htmlFor={field.keyName} className=" px-2"> {field.displayName}: </label>
-            <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder={field.placeHolder} onChange= {handleChange}/>
+            
+            {
+              //for text adn number fields render input tag
+             (field.type !== 'selection') ? 
+             <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder= 'Any' onChange= {handleChange} className =" w-2/3" />
+              :
+              //for selection render list of option
+            <select name={field.keyName} value={filters[field.keyName]} onChange= {handleChange} className =" w-2/3">
+              <option value = '' > Any </option>
+              {field.options.map(option =>
+                <option key={option} value={option} > {option} </option>
+              )}
+            </select>
+              
+            }
           </div>
         )}
 
-        <button className=" border p-1 w-1/2 justify-self-end"> Apply filter </button>
+        <button className=" bg-slate-900/20 hover:bg-slate-900/40 duration-150 p-1 w-1/2 justify-self-end"> Apply filter </button>
       </form>
     </div>
   )

@@ -1,36 +1,31 @@
-import React from "react";
+import React from 'react'
 import { addReviewThunk } from '../actions'
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 export default function NewReview() {
   const dispatch = useDispatch()
   const userId = useParams()
-  
-  
 
-  function handleFormSubmit(){
-    const userReview = document.getElementById("newReview").value
-    const userTitle = document.getElementById("newTitle").value
-    const userRating = document.getElementById("newRating").value
-    
-    const newRevObj = { 
-      title: userTitle, 
+  function handleFormSubmit() {
+    const userReview = document.getElementById('newReview').value
+    const userTitle = document.getElementById('newTitle').value
+    const userRating = document.getElementById('newRating').value
+
+    const newRevObj = {
+      title: userTitle,
       text: userReview,
-      rating: +userRating, 
-      guide_id: userId.id, 
+      rating: +userRating,
+      guide_id: userId.id,
     }
     dispatch(addReviewThunk(newRevObj))
 
-    document.getElementById("newReview").value = ""
-    document.getElementById("newTitle").value = ""
-    document.getElementById("newRating").value = '5'
-    
-
-
+    document.getElementById('newReview').value = ''
+    document.getElementById('newTitle').value = ''
+    document.getElementById('newRating').value = '5'
   }
 
-  return(
+  return (
     <>
       <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
       <form onSubmit={handleFormSubmit}>

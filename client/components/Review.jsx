@@ -14,7 +14,7 @@ function Review({ guideId }) {
 
   return (
     <>
-          <div>
+          <div className="p-2">
           <h1> Reviews: </h1>
           {reviews.length > 0 && reviews.map((review) => {
             return (
@@ -24,11 +24,10 @@ function Review({ guideId }) {
                 <p>Text:{review.text}</p>
                 <ReviewEditDelete review={review} />
               </div>
-        )
-      })}
+            )
+          })}
       </div>
     </>
-    
   )
 }
 
