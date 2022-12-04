@@ -6,6 +6,7 @@ import Header from './Header'
 import Profile from './Profile'
 import GuideProfile from './GuideProfile'
 import AddProfile from './AddProfile'
+// import ProfileDelete from './ProfileDelete'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/profiles/add" element={<AddProfile />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profiles/:id" element={<GuideProfile />} />
+          {/* <Route path="/profiles/:id" element={<ProfileDelete />} /> */}
         </Routes>
       </div>
     </>
