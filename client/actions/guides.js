@@ -22,7 +22,6 @@ export function filterGuidesThunk(filters) {
   return (dispatch) => {
     return fetchFilteredGuides(filters)
       .then(guides => {
-        console.log(guides);
         dispatch(setGuides(guides))
       })
   }

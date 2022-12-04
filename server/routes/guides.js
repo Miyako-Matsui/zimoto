@@ -17,8 +17,7 @@ router.get('/', (req, res) => {
 
 router.get('/filter', (req, res) => {
   const query = req.query
-  console.log(query)
-  db.getFilteredGuides()
+  db.getFilteredGuides(query)
     .then((results) => {
       res.json(results)
     })

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { fetchGuidesThunk } from '../../actions'
+import { fetchGuidesThunk} from '../../actions/guides'
 import Filters from "./Filters";
 import Guide from "./Guide";
 

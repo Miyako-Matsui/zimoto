@@ -1,4 +1,4 @@
-const { default: knex } = require('knex')
+const  {default: knex}  = require('knex')
 const connection = require('./connection')
 
 function guideJoinTable(db = connection){
@@ -12,10 +12,10 @@ function guideJoinTable(db = connection){
       'contact_number AS contactNumber',
       'email', 
       'country',
-      'city',
       )
     .leftJoin('reviews', 'guides.id', 'reviews.guide_id')
     .leftJoin('locations', 'locations.guide_id', 'guides.id')
+    .select(db.raw('group_concat(distinct(locations.city)) as cities'))
     .avg('rating AS averageRating')
     .groupBy('guides.id')
 }
@@ -25,7 +25,8 @@ function getGuides(db = connection) {
     'id',
     'name',
     'fee',
-    'averageRating'
+    'averageRating',
+    'cities'
   )
     .from(guideJoinTable())
     .limit(20)
@@ -35,13 +36,18 @@ function getFilteredGuides(filters, db = connection) {
   const filterObjs = [
     {
       key: 'country',
-      operator: '=',
+      operator: 'like',
       value: filters.country
     },
     {
-      key: 'city',
-      operator: '=',
+      key: 'cities',
+      operator: 'like',
       value: filters.city
+    },
+    {
+      key: 'language',
+      operator: 'like',
+      value: filters.language
     },
     {
       key: 'averageRating',
@@ -69,7 +75,11 @@ function getFilteredGuides(filters, db = connection) {
     .modify(queryBuilder => {
       filterObjs.forEach(filter => {
         if (filter.value) {
-          queryBuilder.where(filter.key, filter.operator, filter.value)
+          if (filter.operator === 'like') {
+            queryBuilder.where(filter.key, 'like', '%' + filter.value + '%')
+          } else {
+            queryBuilder.where(filter.key, filter.operator, filter.value)
+          }
         }
       })
     })
