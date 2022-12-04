@@ -13,7 +13,7 @@ function Filters() {
   const getCountries = () => countriesData.map(item => item.country)
   const getcities = (country) => {
     console.log({country, countriesData});
-    if(countriesData.length !== 0) {
+    if(countriesData.length !== 0 && country !== '') {
       const countryData = countriesData.find(item => item.country === country)
       return countryData.cities
     } else {
@@ -22,8 +22,8 @@ function Filters() {
   }
 
   const [filters, setFilters] = useState({
-    country: 'New Zealand',
-    city: 'Wellington',
+    country: '',
+    city: '',
     language: '',
     minFee: '',
     maxFee: '',
@@ -106,6 +106,7 @@ function Filters() {
               :
               //for selection render list of option
             <select name={field.keyName} value={filters[field.keyName]} onChange= {handleChange} className =" w-2/3">
+              <option value = '' > Any </option>
               {field.options.map(option =>
                 <option key={option} value={option} > {option} </option>
               )}
