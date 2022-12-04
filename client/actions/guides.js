@@ -1,4 +1,4 @@
-import { fetchGuides } from '../apis/guides'
+import { fetchGuides, fetchFilteredGuides } from '../apis/guides'
 
 export const SET_GUIDES = 'SET_GUIDES'
 
@@ -11,8 +11,19 @@ export function setGuides(guides) {
 
 export function fetchGuidesThunk() {
   return (dispatch) => {
-    return fetchGuides().then((guides) => {
+    return fetchGuides()
+      .then(guides => {
       dispatch(setGuides(guides))
     })
+  }
+}
+
+export function filterGuidesThunk(filters) {
+  return (dispatch) => {
+    return fetchFilteredGuides(filters)
+      .then(guides => {
+        console.log(guides);
+        dispatch(setGuides(guides))
+      })
   }
 }
