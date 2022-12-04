@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import { filterGuidesThunk } from '../../actions/guides'
 import { useDispatch } from 'react-redux'
+import { useEffect } from "react";
+import { fetchCountryList } from "../../apis/countries";
 
 function Filters() {
   const dispatch = useDispatch()
+
+  const [countriesData, setCountriesData] = useState([])
+  const [cities, setCity] = useState([])
+  
+  const getCountries = () => countriesData.map(item => item.country)
+  const getcities = (country) => {
+    console.log({country, countriesData});
+    if(countriesData.length !== 0) {
+      const countryData = countriesData.find(item => item.country === country)
+      return countryData.cities
+    } else {
+      return []
+    }
+  }
+
   const [filters, setFilters] = useState({
-    country: '',
-    city: '',
+    country: 'New Zealand',
+    city: 'Wellington',
     language: '',
     minFee: '',
     maxFee: '',
@@ -24,7 +41,6 @@ function Filters() {
       keyName: 'maxFee',
       displayName: 'Fee to',
       type: 'number',
-      placeHolder: 'Any'
     },
     {
       keyName: 'minRating',
@@ -39,20 +55,19 @@ function Filters() {
     {
       keyName: 'country',
       displayName: 'Country',
-      type: 'text',
-      placeHolder: 'Any'
+      type: 'selection',
+      options: getCountries()
     },
     {
       keyName: 'city',
       displayName: 'City',
-      type: 'text',
-      placeHolder: 'Any'
+      type: 'selection',
+      options: getcities(filters.country)
     },
     {
       keyName: 'language',
       displayName: 'Language',
       type: 'text',
-      placeHolder: 'Any'
     },
   ]
 
@@ -68,13 +83,35 @@ function Filters() {
     })
   }
 
+  // List of countries features
+  
+
+  useEffect(async () => {
+    const result = await fetchCountryList()
+    setCountriesData(result)
+  }, [])
+
   return(
     <div className=" flex justify-center">
-      <form onSubmit={handleSubmit} className=" grid grid-cols-2">
+      <form onSubmit={handleSubmit} className=" grid grid-cols-2 w-1/2">
+
         {formConfig.map(field => 
           <div key ={field.keyName} className=" flex justify-end pb-4" >
             <label htmlFor={field.keyName} className=" px-2"> {field.displayName}: </label>
-            <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder= 'Any' onChange= {handleChange}/>
+            
+            {
+              //for text adn number fields render input tag
+             (field.type !== 'selection') ? 
+             <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder= 'Any' onChange= {handleChange} className =" w-2/3" />
+              :
+              //for selection render list of option
+            <select name={field.keyName} value={filters[field.keyName]} onChange= {handleChange} className =" w-2/3">
+              {field.options.map(option =>
+                <option key={option} value={option} > {option} </option>
+              )}
+            </select>
+              
+            }
           </div>
         )}
 
