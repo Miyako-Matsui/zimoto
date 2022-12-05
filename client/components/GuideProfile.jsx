@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { useParams } from 'react-router-dom'
 import { fetchAGuide } from '../apis/individualGuide'
 import '../index.css'
@@ -9,6 +10,7 @@ import Review from './Review'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
+  const { user, isAuthenticated } = useAuth0
 
   const { id } = useParams()
 
@@ -52,12 +54,18 @@ function GuideProfile() {
           </div>
         </div>
       </div>
-      <ProfileDelete />
+      isAuthenticated && (
       <ProfileUpdate />
+      <ProfileDelete />
+      )
       <Review guideId={id} />
       <NewReview />
     </div>
   )
 }
+
+// check profile belongs to authenticated user
+// if yes, render update and delete buttons
+// if no, update and delete buttons do not render
 
 export default GuideProfile
