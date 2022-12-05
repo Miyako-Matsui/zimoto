@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { addGuide } from '.././apis/guides'
-import { fetchAGuide } from '../apis/individualGuide'
 import { useNavigate } from 'react-router-dom'
 
 function addProfile() {
@@ -54,33 +53,39 @@ function addProfile() {
       <form onSubmit={handleSubmit}>
         <div>
 
-          <label>Name</label>
-          <input type='text' id='name' name='name' defaultValue={guideData.name} onChange={handleChange} />
+          <label>Name
+            <input type='text' id='name' name='name' defaultValue={guideData.name} onChange={handleChange} />
+          </label>
         </div>
         <div>
 
-          <label>Bio</label>
-          <input type='text' id='bio' name='bio' defaultValue={guideData.bio} onChange={handleChange} />
+          <label>Bio
+            <input type='text' id='bio' name='bio' defaultValue={guideData.bio} onChange={handleChange} />
+          </label>
         </div>
         <div>
 
-          <label>Language</label>
-          <input type='text' id='language' name='language' defaultValue={guideData.language} onChange={handleChange} />
+          <label>Language
+            <input type='text' id='language' name='language' defaultValue={guideData.language} onChange={handleChange} />
+          </label>
         </div>
         <div>
 
-          <label>Fee</label>
-          <input type='text' id='fee' name='fee' defaultValue={guideData.fee} onChange={handleChange} />
+          <label>Fee
+            <input type='text' id='fee' name='fee' defaultValue={guideData.fee} onChange={handleChange} />
+          </label>
         </div>
         <div>
 
-          <label>Contact Number</label>
+          <label>Contact Number
           <input type='number' id='contact_number' name='contact_number' defaultValue={guideData.contact_number} onChange={handleChange} />
+          </label>
         </div>
         <div>
 
-          <label>Email</label>
+          <label>Email
           <input type='text' id='email' name='email' defaultValue={guideData.email} onChange={handleChange} />
+          </label>
         </div>
         <button>Save</button>
       </form>

@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { filterGuidesThunk } from '../../actions/guides'
 import { useDispatch } from 'react-redux'
-import { useEffect } from "react";
 import { fetchCountryList } from "../../apis/countries";
 
 function Filters() {
   const dispatch = useDispatch()
 
   const [countriesData, setCountriesData] = useState([])
-  const [cities, setCity] = useState([])
   
   const getCountries = () => countriesData.map(item => item.country)
   const getcities = (country) => {

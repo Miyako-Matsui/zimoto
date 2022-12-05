@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
 import { useParams } from 'react-router-dom'
 import { fetchAGuide } from '../apis/individualGuide'
 import '../index.css'
@@ -8,11 +7,10 @@ import ProfileUpdate from './ProfileUpdate'
 import NewReview from './NewReview'
 import Review from './Review'
 import ImageUpload from './ImageUpload'
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { IfAuthenticated } from './Authenticated'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
-  const { user, isAuthenticated } = useAuth0
 
   const { id } = useParams()
 
@@ -33,23 +31,32 @@ function GuideProfile() {
           <div className=" flex justify-center  space-x-10">
             <img
               className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
-              src="https://1.bp.blogspot.com/-umW__JVzY78/Vf-aswLCMdI/AAAAAAAAyJg/hvvJJQqrxMI/s800/icon_business_man16.png"
+              src={guide.picture_url}
               alt="img"
             />
+            
+            
             <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all">
-              <li className="font-normal">Hello! I'm </li>
-              <li className="font-semibold text-center">{guide?.name}</li>
+              <li className="font-normal"> Hello! I&apos;m <div className="font-semibold">{guide?.name}</div></li>
+              <li ></li>
               <li className="font-normal">I would like to guide for you in </li>
               <li className="font-semibold text-center">
-                {guide?.country} &nbsp;<span className="font-normal">of</span>
+                {guide?.city} &nbsp;<span className="font-normal">of</span>
                 &nbsp;
                 {'  '}
-                {guide?.city}
+                {guide?.country}
               </li>
             </ul>
           </div>
         </div>
       </div>
+      
+        
+          <div className=" flex justify-start pl-16 space-x-10">
+            <ImageUpload/>
+          </div>
+        
+      
 
         <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
           <div>
@@ -73,7 +80,6 @@ function GuideProfile() {
       </IfAuthenticated>
       <Review guideId={id} />
       <NewReview />
-      <ImageUpload/>
     </div>
   )
 }

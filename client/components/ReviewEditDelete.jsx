@@ -25,7 +25,6 @@ export default function ReviewEditDelete(review) {
       guide_id: userId.id, 
     }
     dispatch(updateReviewThunk(id, editedReview))
-
   }
 
   function handleDelete () {

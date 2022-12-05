@@ -46,64 +46,76 @@ function ProfileUpdate() {
       <h2 className="p-10">Please fill this out:</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Name</label>
+          <label>
+            Name
           <input
             type="text"
             id="name"
             name="name"
             defaultValue={guideDetails.name}
             onChange={handleChange}
-          />
+            />
+            </label>
         </div>
         <div>
-          <label>Bio</label>
+          <label>
+            Bio
           <input
             type="text"
             id="bio"
             name="bio"
             defaultValue={guideDetails.bio}
             onChange={handleChange}
-          />
+            />
+            </label>
         </div>
         <div>
-          <label>Language</label>
+          <label>
+            Language
           <input
             type="text"
             id="language"
             name="language"
             defaultValue={guideDetails.language}
             onChange={handleChange}
-          />
+            />
+            </label>
         </div>
         <div>
-          <label>Fee</label>
+          <label>
+            Fee
           <input
             type="text"
             id="fee"
             name="fee"
             defaultValue={guideDetails.fee}
             onChange={handleChange}
-          />
+            />
+            </label>
         </div>
         <div>
-          <label>Contact Number</label>
+          <label>
+            Contact Number
           <input
             type="number"
             id="contact_number"
             name="contact_number"
             defaultValue={guideDetails.contact_number}
             onChange={handleChange}
-          />
+            />
+            </label>
         </div>
         <div>
-          <label>Email</label>
+          <label>
+            Email
           <input
             type="text"
             id="email"
             name="email"
             defaultValue={guideDetails.email}
             onChange={handleChange}
-          />
+            />
+            </label>
         </div>
         <div>
           <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
