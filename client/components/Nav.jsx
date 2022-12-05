@@ -21,22 +21,18 @@ function Nav() {
     e.preventDefault()
     loginWithRedirect()
   }
-
-  return (
-    <nav>
+    return (
+    <nav className='flex flex-col-reverse'>
       <ul className="flex space-x-6 mr-10 place-content-end">
-        <IfAuthenticated>
-          <li>
-            <Link to="/" onClick={handleLogOff}>
-              Log off
-            </Link>
-          </li>
-
+      <IfAuthenticated>
+          <li><Link to='/' className="hover:text-[#dab553] hover:font-bold onClick={handleLogOff}>
+            Log off
+          </Link></li>
+          <li><Link to='/profiles/add' className="hover:text-[#dab553] hover:font-bold>Add your profile</Link></li>
           <p>{user?.nickname}</p>
           <p>{user?.name}</p>
         </IfAuthenticated>
         <IfNotAuthenticated>
-
           <li>
             <Link
               to="/"
@@ -47,17 +43,6 @@ function Nav() {
             </Link>
           </li>
         </IfNotAuthenticated>
-        <li>
-          <Link to="/" className="hover:text-[#dab553] hover:font-bold">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/profiles" className="hover:text-[#dab553] hover:font-bold">
-            Profiles
-          </Link>
-        </li>
-      </ul>
     </nav>
   )
 }
