@@ -64,12 +64,12 @@ function GuideProfile() {
             <li>Email : {guide?.email}</li>
           </ul>
         </div>
-      <IfAuthenticated>
+      {/* <IfAuthenticated> */}
       <div className="border-t border-[#2d3951] mt-5">
         <ProfileUpdate />
         <ProfileDelete />
       </div>
-      </IfAuthenticated>
+      {/* </IfAuthenticated> */}
       <Review guideId={id} />
       <NewReview />
     </div>
