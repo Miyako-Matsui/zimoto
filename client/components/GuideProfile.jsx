@@ -73,10 +73,10 @@ function GuideProfile() {
           </ul>
         </div>
       <IfAuthenticated>
-      <div className="border-t border-[#2d3951] mt-5">
-        <ProfileUpdate />
-        <ProfileDelete />
-      </div>
+        <div className="border-t border-[#2d3951] mt-5">
+          <ProfileUpdate />
+          <ProfileDelete />
+        </div>
       </IfAuthenticated>
       <Review guideId={id} />
       <NewReview />

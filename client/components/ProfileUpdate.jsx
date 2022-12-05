@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { fetchAGuide } from '../apis/individualGuide'
 import { updateGuide } from '../apis/guides'
+
 
 // Use state to store form info and send it through to the api to go to the backend (send api id and body of form)
 
@@ -8,16 +10,35 @@ function ProfileUpdate() {
 
   const { id } = useParams()
   const navigate = useNavigate()
+  const initialObj = useRef({})
+
+  useEffect(() => {
+    fetchAGuide(id)
+      .then((res) => {
+        initialObj.current = res
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+  }, [])
+
+  const { name, bio, language, fee, contact_number, email } = initialObj.current
+
+  const [showForm, setShowForm] = useState(false)
 
   const [guideDetails, setGuideDetails] = useState({
-
-    name: '',
-    bio: '',
-    language: '',
-    fee: '',
-    contact_number: '',
-    email: '',
+    
+    name: name,
+    bio: bio,
+    language: language,
+    fee: fee,
+    contact_number: contact_number,
+    email: email,
   })
+
+  function showEditForm(){
+    setShowForm(!showForm)
+  }
 
   const handleChange = (evt) => {
 
@@ -40,9 +61,17 @@ function ProfileUpdate() {
     })
   }
 
+
   return (
 
     <>
+
+      <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+         onClick={showEditForm}> Update Profile
+      </button>
+
+      {showForm && (
+      <div>
       <h2 className="p-10">Please fill this out:</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -52,7 +81,7 @@ function ProfileUpdate() {
             type="text"
             id="name"
             name="name"
-            defaultValue={guideDetails.name}
+            defaultValue={name}
             onChange={handleChange}
             />
             </label>
@@ -64,7 +93,7 @@ function ProfileUpdate() {
             type="text"
             id="bio"
             name="bio"
-            defaultValue={guideDetails.bio}
+            defaultValue={bio}
             onChange={handleChange}
             />
             </label>
@@ -76,7 +105,7 @@ function ProfileUpdate() {
             type="text"
             id="language"
             name="language"
-            defaultValue={guideDetails.language}
+            defaultValue={language}
             onChange={handleChange}
             />
             </label>
@@ -88,7 +117,7 @@ function ProfileUpdate() {
             type="text"
             id="fee"
             name="fee"
-            defaultValue={guideDetails.fee}
+            defaultValue={fee}
             onChange={handleChange}
             />
             </label>
@@ -100,7 +129,7 @@ function ProfileUpdate() {
             type="number"
             id="contact_number"
             name="contact_number"
-            defaultValue={guideDetails.contact_number}
+            defaultValue={contact_number}
             onChange={handleChange}
             />
             </label>
@@ -112,18 +141,15 @@ function ProfileUpdate() {
             type="text"
             id="email"
             name="email"
-            defaultValue={guideDetails.email}
+            defaultValue={email}
             onChange={handleChange}
             />
             </label>
         </div>
-        <div>
-          <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Update Profile
-          </button>
-
-        </div>
+        <button type="submit">Save</button>
       </form>
+      </div>
+      )}
     </>
   )
 }
