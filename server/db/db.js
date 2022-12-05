@@ -28,7 +28,8 @@ function getGuides(db = connection) {
     'averageRating',
     'cities'
   )
-    .from(guideJoinTable())
+    .from(guideJoinTable()) 
+    .as('joinGuideTable')
     .limit(20)
 }
 
