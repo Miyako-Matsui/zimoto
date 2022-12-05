@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { useParams } from 'react-router-dom'
 import { fetchAGuide } from '../apis/individualGuide'
 import '../index.css'
@@ -11,6 +12,7 @@ import ImageUpload from './ImageUpload'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
+  const { user, isAuthenticated } = useAuth0
 
   const { id } = useParams()
 
@@ -27,35 +29,55 @@ function GuideProfile() {
   return (
     <div className="w-1/2 mx-auto text-center flex flex-col">
       <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
-        <div className="border-2[#C2DEDC] block pt-16">
-          <div className=" flex justify-center space-x-10">
+        <div className="block pt-16 break-nomal md:break-all ">
+          <div className=" flex justify-center  space-x-10">
             <img
-              className="w-64 rounded-full bg-white"
+              className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
               src="https://1.bp.blogspot.com/-umW__JVzY78/Vf-aswLCMdI/AAAAAAAAyJg/hvvJJQqrxMI/s800/icon_business_man16.png"
+              alt="img"
             />
-            <ul className="pt-14 m-2 text-left ">
-              <li>Name:{guide?.name}</li>
-              <li>Country:{guide?.country}</li>
-              <li>City:{guide?.city}</li>
+            <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all">
+              <li className="font-normal">Hello! I'm </li>
+              <li className="font-semibold text-center">{guide?.name}</li>
+              <li className="font-normal">I would like to guide for you in </li>
+              <li className="font-semibold text-center">
+                {guide?.country} &nbsp;<span className="font-normal">of</span>
+                &nbsp;
+                {'  '}
+                {guide?.city}
+              </li>
             </ul>
           </div>
         </div>
-        <h2 className="text-center m-8">Bio: {guide?.bio}</h2>
-        <div className="text-left flex justify-center">
-          <div className="border-2 white p-10 m-2">
-            <h2 className="text-center">About {guide?.name}</h2>
-            <h2>Spoken languages:</h2>
+
+        <h2 className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
+          <p className="text-center font-semibold">About {guide?.name}</p>
+          <p className="leading-10">{guide?.bio}</p>
+          <br />
+          <br />
+          <h2 className="text-center font-semibold">
+            More about your local guide
+          </h2>
+          <ul className="list-disc list-style-position: inside ">
+            <li>Languages : </li>
             <ul>
               <li>{guide?.language}</li>
             </ul>
-            <h2>Fee: ${guide?.fee}</h2>
-            <h2>Contact Number: {guide?.contactNumber}</h2>
-            <h2>Email: {guide?.email}</h2>
-          </div>
-        </div>
+            <li>Fee : ${guide?.fee}</li>
+            <li>Contact Numbe : {guide?.contactNumber}</li>
+            <li>Email : {guide?.email}</li>
+          </ul>
+        </h2>
       </div>
-      <ProfileDelete />
+      isAuthenticated && (
       <ProfileUpdate />
+      <ProfileDelete />
+      )
+      <ProfileDelete />
+
+      <div className="border-t border-[#2d3951] mt-5">
+        <ProfileUpdate />
+      </div>
       <Review guideId={id} />
       <NewReview />
       {/* <ImageUploader/> */}
@@ -63,5 +85,9 @@ function GuideProfile() {
     </div>
   )
 }
+
+// check profile belongs to authenticated user
+// if yes, render update and delete buttons
+// if no, update and delete buttons do not render
 
 export default GuideProfile
