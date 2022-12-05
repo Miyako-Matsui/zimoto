@@ -43,6 +43,11 @@ function Nav() {
             </Link>
           </li>
         </IfNotAuthenticated>
+        <li><Link
+              to="/"
+              className="hover:text-[#dab553] hover:font-bold">
+              Home
+            </Link></li>
       </ul>
     </nav>
   )
