@@ -16,8 +16,8 @@ function deleteAGuide(id, db = connection) {
   return db('guides').where('id', id).del()
 }
 
-function updateAGuide(id, value, db = connection) {
-  return db('guides').update(value).where('id', id)
+function updateAGuide(id, newDetails, db = connection) {
+  return db('guides').update(newDetails).where('id', id)
 }
 
 module.exports = {
