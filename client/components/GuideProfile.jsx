@@ -50,17 +50,15 @@ function GuideProfile() {
           <h2 className="text-center font-semibold">
             More about your local guide
           </h2>
-          <h2 className="m-2 leading-10">
-            Languages:
+          <ul className="list-disc list-style-position: inside ">
+            <li>Languages:</li>
             <ul>
               <li>{guide?.language}</li>
             </ul>
-            <h2 className="m-2 leading-10">Fee: ${guide?.fee}</h2>
-            <h2 className="m-2 leading-10">
-              Contact Number: {guide?.contactNumber}
-            </h2>
-            <h2 className=" m-2 leading-10">Email: {guide?.email}</h2>
-          </h2>
+            <li>Fee: ${guide?.fee}</li>
+            <li>Contact Number: {guide?.contactNumber}</li>
+            <li>Email: {guide?.email}</li>
+          </ul>
         </h2>
       </div>
       <ProfileDelete />
