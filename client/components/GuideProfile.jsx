@@ -7,7 +7,7 @@ import ProfileDelete from './ProfileDelete'
 import ProfileUpdate from './ProfileUpdate'
 import NewReview from './NewReview'
 import Review from './Review'
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { IfAuthenticated } from './Authenticated'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
@@ -64,12 +64,12 @@ function GuideProfile() {
             <li>Email : {guide?.email}</li>
           </ul>
         </div>
-      {/* <IfAuthenticated> */}
-      <div className="border-t border-[#2d3951] mt-5">
-        <ProfileUpdate />
-        <ProfileDelete />
-      </div>
-      {/* </IfAuthenticated> */}
+      <IfAuthenticated>
+        <div className="border-t border-[#2d3951] mt-5">
+          <ProfileUpdate />
+          <ProfileDelete />
+        </div>
+      </IfAuthenticated>
       <Review guideId={id} />
       <NewReview />
     </div>
