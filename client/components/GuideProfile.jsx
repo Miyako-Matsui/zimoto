@@ -5,6 +5,8 @@ import '../index.css'
 import ProfileDelete from './ProfileDelete'
 import NewReview from './NewReview'
 import Review from './Review'
+// import ImageUploader from './ImageUploader'
+import ImageUpload from './ImageUpload'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
@@ -54,6 +56,8 @@ function GuideProfile() {
       <ProfileDelete />
       <Review guideId={id} />
       <NewReview />
+      {/* <ImageUploader/> */}
+      <ImageUpload/>
     </div>
   )
 }
