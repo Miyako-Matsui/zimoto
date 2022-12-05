@@ -26,6 +26,17 @@ export function deleteGuide(id) {
   })
 }
 
+export function updateGuide(id, newDetails) {
+  return request.patch(rootUrl + `/profiles/${id}`)
+  .send(newDetails)
+  .then((res) => {
+    return res.body
+  })
+  .catch((err) => {
+    console.log(err.message)
+  })
+}
+
 export function fetchFilteredGuides(queryData) {
   let queryString = '?'
 
@@ -36,7 +47,6 @@ export function fetchFilteredGuides(queryData) {
   }
   queryString = queryString.slice(0, -1)
   const url = rootUrl + '/guides/filter' + queryString
-  console.log(url)
   return request.get(rootUrl + '/guides/filter' + queryString)
     .then(res => {
       return res.body
