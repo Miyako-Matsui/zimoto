@@ -50,7 +50,7 @@ function Nav() {
             </Link>
           </li> 
         </IfNotAuthenticated>
-      </ul> 
+      </ul>
     </nav>
   )
 }

@@ -7,6 +7,7 @@ import ProfileDelete from './ProfileDelete'
 import ProfileUpdate from './ProfileUpdate'
 import NewReview from './NewReview'
 import Review from './Review'
+import { IfAuthenticated } from './Authenticated'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
@@ -47,35 +48,28 @@ function GuideProfile() {
             </ul>
           </div>
         </div>
+      </div>
 
-        <h2 className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
-          <p className="text-center font-semibold">About {guide?.name}</p>
+        <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
+          <div>
+            <h2 className="text-center font-semibold">About {guide?.name}</h2>
+          </div>
           <p className="leading-10">{guide?.bio}</p>
-          <br />
-          <br />
-          <h2 className="text-center font-semibold">
-            More about your local guide
-          </h2>
+          <h2 className="text-center font-semibold">More about your local guide</h2>
           <ul className="list-disc list-style-position: inside ">
             <li>Languages : </li>
-            <ul>
-              <li>{guide?.language}</li>
-            </ul>
+            <li>{guide?.language}</li>
             <li>Fee : ${guide?.fee}</li>
             <li>Contact Numbe : {guide?.contactNumber}</li>
             <li>Email : {guide?.email}</li>
           </ul>
-        </h2>
-      </div>
-      isAuthenticated && (
-      <ProfileUpdate />
-      <ProfileDelete />
-      )
-      <ProfileDelete />
-
-      <div className="border-t border-[#2d3951] mt-5">
-        <ProfileUpdate />
-      </div>
+        </div>
+      <IfAuthenticated>
+        <div className="border-t border-[#2d3951] mt-5">
+          <ProfileUpdate />
+          <ProfileDelete />
+        </div>
+      </IfAuthenticated>
       <Review guideId={id} />
       <NewReview />
     </div>
