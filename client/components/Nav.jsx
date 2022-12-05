@@ -25,10 +25,10 @@ function Nav() {
     <nav className='flex flex-col-reverse'>
       <ul className="flex space-x-6 mr-10 place-content-end">
       <IfAuthenticated>
-          <li><Link to='/' className="hover:text-[#dab553] hover:font-bold onClick={handleLogOff}>
+          <li><Link to='/' className="hover:text-[#dab553] hover:font-bold" onClick={handleLogOff}>
             Log off
           </Link></li>
-          <li><Link to='/profiles/add' className="hover:text-[#dab553] hover:font-bold>Add your profile</Link></li>
+          <li><Link to='/profiles/add' className="hover:text-[#dab553] hover:font-bold">Add your profile</Link></li>
           <p>{user?.nickname}</p>
           <p>{user?.name}</p>
         </IfAuthenticated>
@@ -42,7 +42,15 @@ function Nav() {
               Sign In
             </Link>
           </li>
+          <li>
+            <Link
+              to="/"
+              className="hover:text-[#dab553] hover:font-bold">
+              Home
+            </Link>
+          </li> 
         </IfNotAuthenticated>
+      </ul> 
     </nav>
   )
 }
