@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
 
 function Nav() {
-  const { logout, loginWithRedirect} = useAuth0()
+  const { logout, loginWithRedirect } = useAuth0()
   const { user } = useAuth0()
 
   const handleLogOff = (e) => {
@@ -19,23 +19,39 @@ function Nav() {
     e.preventDefault()
     loginWithRedirect()
   }
-    return (
-    <nav className='flex flex-col-reverse'>
-      <ul className='flex justify-items-end space-x-6 mr-10'>
-      <IfAuthenticated>
-          <li><Link to='/' onClick={handleLogOff}>
-            Log off
-          </Link></li>
+  return (
+    <nav>
+      <ul className="flex space-x-6 mr-10 place-content-end">
+        <IfAuthenticated>
+          <li>
+            <Link to="/" onClick={handleLogOff}>
+              Log off
+            </Link>
+          </li>
           <p>{user?.nickname}</p>
           <p>{user?.name}</p>
         </IfAuthenticated>
         <IfNotAuthenticated>
-          <li><Link to='/' onClick={handleSignIn}>
-            Sign In
-          </Link></li>
+          <li>
+            <Link
+              to="/"
+              className="hover:text-[#dab553] hover:font-bold"
+              onClick={handleSignIn}
+            >
+              Sign In
+            </Link>
+          </li>
         </IfNotAuthenticated>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/profiles'>Profiles</Link></li>
+        <li>
+          <Link to="/" className="hover:text-[#dab553] hover:font-bold">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/profiles" className="hover:text-[#dab553] hover:font-bold">
+            Profiles
+          </Link>
+        </li>
       </ul>
     </nav>
   )
