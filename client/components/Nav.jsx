@@ -19,6 +19,7 @@ function Nav() {
     e.preventDefault()
     loginWithRedirect()
   }
+
     return (
     <nav className='flex flex-col-reverse'>
       <ul className='flex justify-items-end space-x-6 mr-10'>
@@ -26,6 +27,7 @@ function Nav() {
           <li><Link to='/' onClick={handleLogOff}>
             Log off
           </Link></li>
+          <li><Link to='/profiles/add'>Add your profile</Link></li>
           <p>{user?.nickname}</p>
           <p>{user?.name}</p>
         </IfAuthenticated>
@@ -35,7 +37,6 @@ function Nav() {
           </Link></li>
         </IfNotAuthenticated>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/profiles'>Profiles</Link></li>
       </ul>
     </nav>
   )
