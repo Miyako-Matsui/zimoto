@@ -66,9 +66,11 @@ function GuideProfile() {
         </h2>
       </div>
       <ProfileDelete />
+
       <div className="border-t border-[#2d3951] mt-5">
         <ProfileUpdate />
       </div>
+
       <Review guideId={id} />
       <NewReview />
     </div>

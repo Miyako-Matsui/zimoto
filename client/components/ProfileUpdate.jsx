@@ -6,10 +6,12 @@ import { updateGuide } from '../apis/guides'
 // Use state to store form info and send it through to the api to go to the backend (send api id and body of form)
 
 function ProfileUpdate() {
+
   const { id } = useParams()
   const navigate = useNavigate()
 
   const [guideDetails, setGuideDetails] = useState({
+
     name: '',
     bio: '',
     language: '',
@@ -19,6 +21,7 @@ function ProfileUpdate() {
   })
 
   const handleChange = (evt) => {
+
     setGuideDetails({
       ...guideDetails,
       [evt.target.name]: evt.target.value,
@@ -26,6 +29,7 @@ function ProfileUpdate() {
   }
 
   const handleSubmit = async (evt) => {
+
     evt.preventDefault()
 
     setGuideDetails(Number(guideDetails.contact_number))
@@ -38,6 +42,7 @@ function ProfileUpdate() {
   }
 
   return (
+
     <>
       <h2 className="p-10">Please fill this out:</h2>
       <form onSubmit={handleSubmit}>
@@ -105,10 +110,12 @@ function ProfileUpdate() {
           <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Update Profile
           </button>
+
         </div>
       </form>
     </>
   )
 }
+
 
 export default ProfileUpdate

@@ -7,7 +7,9 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
 
 function Nav() {
-  const { logout, loginWithRedirect } = useAuth0()
+
+  const { logout, loginWithRedirect} = useAuth0()
+
   const { user } = useAuth0()
 
   const handleLogOff = (e) => {
@@ -19,6 +21,7 @@ function Nav() {
     e.preventDefault()
     loginWithRedirect()
   }
+
   return (
     <nav>
       <ul className="flex space-x-6 mr-10 place-content-end">
@@ -28,10 +31,12 @@ function Nav() {
               Log off
             </Link>
           </li>
+
           <p>{user?.nickname}</p>
           <p>{user?.name}</p>
         </IfAuthenticated>
         <IfNotAuthenticated>
+
           <li>
             <Link
               to="/"

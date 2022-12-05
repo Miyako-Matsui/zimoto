@@ -8,6 +8,7 @@ function ProfileDelete() {
   const navigate = useNavigate()
 
   function removeProfile(id) {
+    
     deleteGuide(id)
       .then(() => {
         navigate('/')
@@ -29,6 +30,7 @@ function ProfileDelete() {
           Delete Profile
         </button>
       </div>
+
     </>
   )
 }
