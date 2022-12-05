@@ -26,7 +26,7 @@ function GuideProfile() {
   }, [])
 
   return (
-    <div className="w-1/2 mx-auto text-center flex flex-col">
+    <div className="w-2/3 mx-auto text-center flex flex-col">
       <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
         <div className="block pt-16 break-nomal md:break-all ">
           <div className=" flex justify-center  space-x-10">
