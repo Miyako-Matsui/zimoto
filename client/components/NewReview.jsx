@@ -69,7 +69,7 @@ export default function NewReview() {
           <label className="form-label mb-2 text-gray-700">
           <h5> Rating: </h5>
           <div className="slidecontainer">
-            <input id='newRating' type="range" min="1" max="10" defaultValue='5' className="slider"/>
+            <input id='newRating' type="range" min="1" max="5" defaultValue='3' className="slider"/>
           </div>
           </label>
         <input type="submit" className='bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' value="Submit" />

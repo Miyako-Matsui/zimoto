@@ -38,8 +38,6 @@ const UploadWidget = () => {
         const imgUrlUpdate = {
           picture_url: uploadedImage,
         }
-        //uploadedImage is set to the URL for the Image after the image is done uploading!!
-        //TODO - Save URL To Database Based on ID of guide
         updateGuide(id, imgUrlUpdate)
       }
 

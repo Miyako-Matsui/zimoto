@@ -52,7 +52,7 @@ function GuideProfile() {
       </div>
       
         
-          <div className=" flex justify-start pl-16 space-x-10">
+          <div className=" flex justify-start pl-52">
             <ImageUpload/>
           </div>
         
