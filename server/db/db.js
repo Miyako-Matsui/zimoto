@@ -11,11 +11,11 @@ function guideJoinTable(db = connection){
       'fee',
       'contact_number AS contactNumber',
       'email', 
-      'country',
+      // 'country',
       )
     .leftJoin('reviews', 'guides.id', 'reviews.guide_id')
-    .leftJoin('locations', 'locations.guide_id', 'guides.id')
-    .select(db.raw('group_concat(distinct(locations.city)) as cities'))
+    // .leftJoin('locations', 'locations.guide_id', 'guides.id')
+    // .select(db.raw('group_concat(distinct(locations.city)) as cities'))
     .avg('rating AS averageRating')
     .groupBy('guides.id')
     .as('joinGuideTable')
@@ -27,7 +27,7 @@ function getGuides(db = connection) {
     'name',
     'fee',
     'averageRating',
-    'cities'
+    // 'cities'
   )
     .from(guideJoinTable()) 
     .limit(20)
@@ -35,16 +35,16 @@ function getGuides(db = connection) {
 
 function getFilteredGuides(filters, db = connection) {
   const filterObjs = [
-    {
-      key: 'country',
-      operator: 'like',
-      value: filters.country
-    },
-    {
-      key: 'cities',
-      operator: 'like',
-      value: filters.city
-    },
+    // {
+    //   key: 'country',
+    //   operator: 'like',
+    //   value: filters.country
+    // },
+    // {
+    //   key: 'cities',
+    //   operator: 'like',
+    //   value: filters.city
+    // },
     {
       key: 'language',
       operator: 'like',
@@ -72,18 +72,45 @@ function getFilteredGuides(filters, db = connection) {
     },
   ]
 
-  return db.select().from(guideJoinTable())
-    .modify(queryBuilder => {
-      filterObjs.forEach(filter => {
-        if (filter.value) {
-          if (filter.operator === 'like') {
-            queryBuilder.where(filter.key, 'like', '%' + filter.value + '%')
-          } else {
-            queryBuilder.where(filter.key, filter.operator, filter.value)
-          }
-        }
-      })
+  // return db.select().from(guideJoinTable())
+  //   .modify(queryBuilder => {
+  //     filterObjs.forEach(filter => {
+  //       if (filter.value) {
+  //         if (filter.operator === 'like') {
+  //           queryBuilder.where(filter.key, 'like', '%' + filter.value + '%')
+  //         } else {
+  //           queryBuilder.where(filter.key, filter.operator, filter.value)
+  //         }
+  //       }
+  //     })
+  //   })
+
+  return db.select()
+    .from(guideJoinTable())
+    .modify(query => {
+      if (filters.country) {
+        query.where(country: filters.country)
+      }
     })
+  
+  
+  .from(
+    db('locations')
+      .where({country: filters.country, city: filters.city})
+      .as('filteredLocations')
+    )
+    .join(guideJoinTable())
+      .modify(queryBuilder => {
+        filterObjs.forEach(filter => {
+          if (filter.value) {
+            if (filter.operator === 'like') {
+              queryBuilder.where(filter.key, 'like', '%' + filter.value + '%')
+            } else {
+              queryBuilder.where(filter.key, filter.operator, filter.value)
+            }
+          }
+        })
+      })
 }
 
 module.exports = {
