@@ -42,14 +42,14 @@ function Nav() {
               Sign In
             </Link>
           </li>
-          <li>
+        </IfNotAuthenticated>
+        <li>
             <Link
               to="/"
               className="hover:text-[#dab553] hover:font-bold">
               Home
             </Link>
           </li> 
-        </IfNotAuthenticated>
       </ul>
     </nav>
   )
