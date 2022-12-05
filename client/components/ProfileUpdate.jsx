@@ -29,12 +29,12 @@ function ProfileUpdate() {
 
   const [guideDetails, setGuideDetails] = useState({
     
-    name: '',
-    bio: '',
-    language: '',
-    fee: '',
-    contact_number: '',
-    email: '',
+    name: name,
+    bio: bio,
+    language: language,
+    fee: fee,
+    contact_number: contact_number,
+    email: email,
   })
 
   function showEditForm(){
