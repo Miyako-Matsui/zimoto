@@ -36,7 +36,6 @@ export function fetchFilteredGuides(queryData) {
   }
   queryString = queryString.slice(0, -1)
   const url = rootUrl + '/guides/filter' + queryString
-  console.log(url)
   return request.get(rootUrl + '/guides/filter' + queryString)
     .then(res => {
       return res.body
