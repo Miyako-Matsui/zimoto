@@ -1,9 +1,6 @@
 import React from 'react'
-
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-
 import { useAuth0 } from '@auth0/auth0-react'
-
 import { Link } from 'react-router-dom'
 
 function Nav() {

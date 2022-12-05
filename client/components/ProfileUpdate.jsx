@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
 import { updateGuide } from '../apis/guides'
 
 // Use state to store form info and send it through to the api to go to the backend (send api id and body of form)

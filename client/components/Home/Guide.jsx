@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Guide({guide}) {
+  console.log(guide)
   const {id, name, averageRating, fee} = guide
   return(
     <Link to= {'/profiles/'+ id }>

@@ -7,7 +7,6 @@ import ProfileDelete from './ProfileDelete'
 import ProfileUpdate from './ProfileUpdate'
 import NewReview from './NewReview'
 import Review from './Review'
-// import ImageUploader from './ImageUploader'
 import ImageUpload from './ImageUpload'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
@@ -74,7 +73,6 @@ function GuideProfile() {
       </IfAuthenticated>
       <Review guideId={id} />
       <NewReview />
-      {/* <ImageUploader/> */}
       <ImageUpload/>
     </div>
   )
