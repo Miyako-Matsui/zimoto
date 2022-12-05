@@ -1,25 +1,36 @@
 import React, { useEffect, useRef } from 'react';
 
-const UploadWidget = ({ children, onUpload }) => {
-  const cloudinary = useRef();
-  const widget = useRef();
-
-  // img url: https://res.cloudinary.com/dhstdr0nk/image/upload/
+const UploadWidget = () => {
+  const cloudinary = useRef()
+  const widget = useRef()
+  const imgPath = useRef(null)
+  const imgUrl = 'https://res.cloudinary.com/dhstdr0nk/image/upload/'
   // image upload path: data.info.files.0.uploadInfo.path
-
+  //ask facilitators about this one fr fr
 
   useEffect(() => {
     cloudinary.current = window.cloudinary;
     widget.current = cloudinary.current.createUploadWidget({
       cloudName: "dhstdr0nk",
       uploadPreset: "zimoto",
-    }, function(error, result){
+    }, async function(error, result){
       // console.log(result)
-      console.log(result.data.info.files[0].uploadInfo.path)
+      if(result.data.info.files[0].uploadInfo.path !== undefined){
+      imgPath.current = result.data.info.files[0].uploadInfo.path
+      console.log(imgPath)
+      }
+      if(imgPath.current !== null){
+        const uploadedImage = imgUrl + imgPath.current
+        console.log(uploadedImage)
+        //uploadedImage is set to the URL for the Image after the image is done uploading :D
+        //TODO - Save URL To Database Based on ID of guide
+      }
+
     })
     console.log(cloudinary.current)
   }, []);
-
+  
+ 
   
 
   return (
