@@ -18,6 +18,7 @@ function guideJoinTable(db = connection){
     .select(db.raw('group_concat(distinct(locations.city)) as cities'))
     .avg('rating AS averageRating')
     .groupBy('guides.id')
+    .as('joinGuideTable')
 }
 
 function getGuides(db = connection) {
@@ -28,7 +29,7 @@ function getGuides(db = connection) {
     'averageRating',
     'cities'
   )
-    .from(guideJoinTable())
+    .from(guideJoinTable()) 
     .limit(20)
 }
 
