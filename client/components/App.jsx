@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Home/Home'
 import Header from './Header'
-import Profile from './Profile'
 import GuideProfile from './GuideProfile'
 import AddProfile from './AddProfile'
 
@@ -15,7 +13,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profiles/add" element={<AddProfile />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/profiles/:id" element={<GuideProfile />} />
         </Routes>
       </div>

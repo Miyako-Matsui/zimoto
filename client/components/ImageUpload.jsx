@@ -27,7 +27,6 @@ const UploadWidget = () => {
       }
 
     })
-    console.log(cloudinary.current)
   }, []);
   
  
