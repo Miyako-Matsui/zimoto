@@ -37,7 +37,10 @@ function GuideProfile() {
               <li className="font-semibold text-center">{guide?.name}</li>
               <li className="font-normal">I would like to guide for you in </li>
               <li className="font-semibold text-center">
-                {guide?.country} of {guide?.city}
+                {guide?.country} &nbsp;<span className="font-normal">of</span>
+                &nbsp;
+                {'  '}
+                {guide?.city}
               </li>
             </ul>
           </div>
@@ -52,18 +55,20 @@ function GuideProfile() {
             More about your local guide
           </h2>
           <ul className="list-disc list-style-position: inside ">
-            <li>Languages:</li>
+            <li>Languages : </li>
             <ul>
               <li>{guide?.language}</li>
             </ul>
-            <li>Fee: ${guide?.fee}</li>
-            <li>Contact Number: {guide?.contactNumber}</li>
-            <li>Email: {guide?.email}</li>
+            <li>Fee : ${guide?.fee}</li>
+            <li>Contact Numbe : {guide?.contactNumber}</li>
+            <li>Email : {guide?.email}</li>
           </ul>
         </h2>
       </div>
       <ProfileDelete />
-      <ProfileUpdate />
+      <div className="border-t border-[#2d3951] mt-5">
+        <ProfileUpdate />
+      </div>
       <Review guideId={id} />
       <NewReview />
     </div>
