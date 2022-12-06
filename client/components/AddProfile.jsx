@@ -70,11 +70,11 @@ function addProfile() {
     setGuideData(Number(guideData.contact_number))
 
     getAccessTokenSilently()
-        .then((token) => {
-          addGuide(guideData, token)
-          navigate('/')
-        })
-        .catch((err) => setError(err.message))
+      .then((token) => {
+        addGuide(guideData, token)
+        navigate('/')
+      })
+      .catch((err) => setError(err.message))
 
     // await addGuide(guideData).then((res) => {
     //   console.log(res)
@@ -90,7 +90,7 @@ function addProfile() {
 
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-12">
         <img
           className="max-h-60 max-w-60 lg:h-60 rounded-full bg-white"
           src={Image}
@@ -99,7 +99,7 @@ function addProfile() {
       </div>
       <div className="text-center">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded m-5"
           onClick={() => widget.current.open()}
         >
           Upload Image
@@ -107,7 +107,7 @@ function addProfile() {
       </div>
       <div className="flex justify-center">
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="p-2">
             <h1>Name:</h1>
             <input
               type="text"
@@ -118,7 +118,7 @@ function addProfile() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="p-2">
             <h1>Bio:</h1>
             <textarea
               type="text"
@@ -130,7 +130,7 @@ function addProfile() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="p-2">
             <h1>Language:</h1>
             <input
               type="text"
@@ -141,7 +141,7 @@ function addProfile() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="p-2">
             <h1>Fee: </h1>
             <input
               type="text"
@@ -152,7 +152,7 @@ function addProfile() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="p-2">
             <h1>Contact Number: </h1>
             <input
               type="text"
@@ -163,7 +163,7 @@ function addProfile() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="p-2">
             <h1>Email: </h1>
             <input
               type="text"
@@ -174,8 +174,8 @@ function addProfile() {
               onChange={handleChange}
             />
           </div>
-          <div className="text-center">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center">
+          <div className="text-center pb-8">
+            <button className="bg-[#C2DEDC] hover:bg-[#C3DDC0] text-[#2d3951] font-bold py-2 px-4 rounded text-center m-5">
               Save
             </button>
           </div>
