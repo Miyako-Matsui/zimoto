@@ -34,7 +34,7 @@ function GuideProfile() {
               alt="img"
             />
             <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
-              <li className="font-normal">Hello! I'm </li>
+              <li className="font-normal">Hello! I&apos;m </li>
               <li className="font-semibold text-center">{guide?.name}</li>
               <li className="font-normal">I would like to be your guide to</li>
               <li className="font-semibold text-center">

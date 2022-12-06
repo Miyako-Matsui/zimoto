@@ -20,10 +20,11 @@ function addProfile() {
       uploadPreset: "zimoto",
     },function(error, result){
       if(result.data.event == 'abort'){
-        const img = uploadedImage.current
+        let img = uploadedImage.current
+          if(img == undefined){
+            img = 'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
+          }
         setImage(img)
-        console.log("the image", img)
-        console.log("the actual image", Image)
       }
       if(result?.data.info.files[0].uploadInfo.path !== undefined){
         imgPath.current = result?.data.info.files[0].uploadInfo.path
@@ -32,14 +33,8 @@ function addProfile() {
       if(imgPath.current !== null){
         uploadedImage.current = imgUrl + imgPath.current
       }
-      console.log("setimage, image", Image)
     })
-    console.log("setimage, image", Image)
   }, []);
-
-  useEffect(() => {
-    console.log(Image)
-  }, [Image])
 
   const [guideData, setGuideData] = useState({
     name: '',
@@ -69,15 +64,7 @@ function addProfile() {
           addGuide(guideData, token)
           navigate('/')
         })
-        .catch((err) => setError(err.message))
-
-    // await addGuide(guideData).then((res) => {
-    //   console.log(res)
-
-    //   navigate('/')
-    // })
-
-    // console.log('done', guideData)
+        .catch((err) => (err.message))
     await addGuide(guideData).then(() => {
       navigate('/')
     })
