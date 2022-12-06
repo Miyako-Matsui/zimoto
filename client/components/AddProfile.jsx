@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import React, { useState, useRef, useEffect } from 'react'
 import { addGuide } from '.././apis/guides'
 import { useNavigate } from 'react-router-dom'
@@ -12,6 +13,7 @@ function addProfile() {
     'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
   )
   const navigate = useNavigate()
+  const { getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
     cloudinary.current = window.cloudinary
@@ -64,6 +66,23 @@ function addProfile() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
+
+    setGuideData(Number(guideData.contact_number))
+
+    getAccessTokenSilently()
+        .then((token) => {
+          addGuide(guideData, token)
+          navigate('/')
+        })
+        .catch((err) => setError(err.message))
+
+    // await addGuide(guideData).then((res) => {
+    //   console.log(res)
+
+    //   navigate('/')
+    // })
+
+    // console.log('done', guideData)
     await addGuide(guideData).then(() => {
       navigate('/')
     })
