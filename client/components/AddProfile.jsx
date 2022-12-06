@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react'
 import React, { useState, useRef, useEffect } from 'react'
 import { addGuide } from '.././apis/guides'
 import { useNavigate } from 'react-router-dom'
@@ -16,34 +15,26 @@ function addProfile() {
 
   useEffect(() => {
     cloudinary.current = window.cloudinary
-    widget.current = cloudinary.current.createUploadWidget(
-      {
-        cloudName: 'dhstdr0nk',
-        uploadPreset: 'zimoto',
-      },
-      function (error, result) {
-        if (result.data.event == 'abort') {
-          const img = uploadedImage.current
-          setImage(img)
-          console.log('the image', img)
-          console.log('the actual image', Image)
-        }
-        if (result?.data.info.files[0].uploadInfo.path !== undefined) {
-          imgPath.current = result?.data.info.files[0].uploadInfo.path
-          console.log('img path', imgPath)
-        }
-        if (imgPath.current !== null) {
-          uploadedImage.current = imgUrl + imgPath.current
-        }
-        console.log('setimage, image', Image)
+    widget.current = cloudinary.current.createUploadWidget({
+      cloudName: "dhstdr0nk",
+      uploadPreset: "zimoto",
+    },function(error, result){
+      if(result.data.event == 'abort'){
+        let img = uploadedImage.current
+          if(img == undefined){
+            img = 'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
+          }
+        setImage(img)
       }
-    )
-    console.log('setimage, image', Image)
-  }, [])
-
-  useEffect(() => {
-    console.log(Image)
-  }, [Image])
+      if(result?.data.info.files[0].uploadInfo.path !== undefined){
+        imgPath.current = result?.data.info.files[0].uploadInfo.path
+        console.log("img path", imgPath)
+      }
+      if(imgPath.current !== null){
+        uploadedImage.current = imgUrl + imgPath.current
+      }
+    })
+  }, []);
 
   const [guideData, setGuideData] = useState({
     name: '',
@@ -67,14 +58,11 @@ function addProfile() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-
-    setGuideData(Number(guideData.contact_number))
-
+    
     addGuide(guideData).then((res) => {
-      console.log(res)
-
       navigate(`/profiles/${res}`)
     })
+    .catch((err) => console.log(err.message))
   }
 
   return (
