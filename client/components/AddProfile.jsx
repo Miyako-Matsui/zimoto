@@ -13,7 +13,6 @@ function addProfile() {
     'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
   )
   const navigate = useNavigate()
-  const { getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
     cloudinary.current = window.cloudinary
@@ -50,6 +49,8 @@ function addProfile() {
     name: '',
     bio: '',
     language: '',
+    country: '',
+    city: '',
     fee: '',
     contact_number: '',
     email: '',
@@ -64,27 +65,15 @@ function addProfile() {
     })
   }
 
-  const handleSubmit = async (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault()
 
     setGuideData(Number(guideData.contact_number))
 
-    getAccessTokenSilently()
-        .then((token) => {
-          addGuide(guideData, token)
-          navigate('/')
-        })
-        .catch((err) => setError(err.message))
+    addGuide(guideData).then((res) => {
+      console.log(res)
 
-    // await addGuide(guideData).then((res) => {
-    //   console.log(res)
-
-    //   navigate('/')
-    // })
-
-    // console.log('done', guideData)
-    await addGuide(guideData).then(() => {
-      navigate('/')
+      navigate(`/profiles/${res}`)
     })
   }
 
@@ -139,6 +128,28 @@ function addProfile() {
               name="language"
               size="60"
               defaultValue={guideData.language}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <h1>Country:</h1>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              size="60"
+              defaultValue={guideData.country}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <h1>City:</h1>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              size="60"
+              defaultValue={guideData.city}
               onChange={handleChange}
             />
           </div>
