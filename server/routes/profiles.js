@@ -1,5 +1,4 @@
 const express = require('express')
-const checkJwt = require ('../auth0.js')
 const router = express.Router()
 
 const db = require('../db/profiles')
@@ -29,7 +28,7 @@ router.post('/add', (req, res) => {
 })
 // DELETE /api/v1/profiles/
 
-router.delete('/:id', checkJwt, (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.params
   const auth0Id = req.auth?.sub
 
