@@ -11,8 +11,8 @@ function Guide({guide}) {
   return(
     <Link to= {'/profiles/'+ id }>
       <div className=' rounded shadow-md bg-[#d2e6e3] hover:shadow-lg shadow-gray-400 hover:shadow-gray-700 duration-150'>
-        <div className=" w-full aspect-square p-5">
-          <img src={picture_url} alt="avatar" className=" rounded-full"/>
+        <div className=" w-full p-5">
+          <img src={picture_url} alt="avatar" className=" rounded-full object-cover aspect-square"/>
         </div>
         <div className=" p-4 ">
           <h1 className=" text-xl"> {name} </h1>
