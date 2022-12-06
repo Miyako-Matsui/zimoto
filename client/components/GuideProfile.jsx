@@ -24,6 +24,7 @@ function GuideProfile() {
   }, [])
 
   return (
+    <>
     <div className="w-2/3 mx-auto text-center flex flex-col lg:w-2/3 p-10 lg:p-10 mb-15 ">
       <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
         <div className="block pt-16 break-nomal md:break-all ">
@@ -79,6 +80,7 @@ function GuideProfile() {
         <div className="border-t border-[#dab553] p-6">
           <NewReview />
         </div>
+      </div>
       </div>
     </>
   )
