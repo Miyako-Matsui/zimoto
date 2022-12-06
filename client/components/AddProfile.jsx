@@ -90,6 +90,7 @@ function addProfile() {
 
   return (
     <>
+      <h1 className='text-6xl text-center m-7'>Add your guide profile</h1>
       <div className="flex justify-center">
         <img
           className="max-h-60 max-w-60 lg:h-60 rounded-full bg-white"
@@ -99,7 +100,7 @@ function addProfile() {
       </div>
       <div className="text-center">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5"
           onClick={() => widget.current.open()}
         >
           Upload Image
@@ -175,7 +176,7 @@ function addProfile() {
             />
           </div>
           <div className="text-center">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center m-5">
               Save
             </button>
           </div>
