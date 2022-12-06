@@ -50,6 +50,9 @@ function GuideProfile() {
               </ul>
             </div>
           </div>
+          <div className="flex justify-start pl-56">
+            <ImageUpload />
+          </div>
           <IfAuthenticated>
             <div className="border-t border-[#c2dedc] p-2 flex justify-end">
               <ProfileUpdate />
