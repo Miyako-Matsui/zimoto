@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom'
 import { updateGuide } from '../apis/guides'
 import { fetchAGuide } from '../apis/individualGuide'
@@ -29,6 +29,10 @@ const UploadWidget = () => {
       cloudName: "dhstdr0nk",
       uploadPreset: "zimoto",
     }, async function(error, result){
+      console.log(result.data.event)
+      if(result.data.event === 'abort'){
+        window.location.reload(false);
+      }
       if(result.data.info.files[0].uploadInfo.path !== undefined){
       imgPath.current = result.data.info.files[0].uploadInfo.path
       }

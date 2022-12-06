@@ -18,12 +18,13 @@ function GuideProfile() {
     fetchAGuide(id)
       .then((res) => {
         setGuide(res)
+        console.log(res)
       })
       .catch((err) => {
         console.log(err.message)
       })
   }, [])
-
+  
   return (
     <div className="w-1/2 mx-auto text-center flex flex-col">
       <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
@@ -31,7 +32,7 @@ function GuideProfile() {
           <div className=" flex justify-center  space-x-10">
             <img
               className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
-              src={guide.picture_url}
+              src={guide?.picture_url}
               alt="img"
             />
             
@@ -50,14 +51,9 @@ function GuideProfile() {
           </div>
         </div>
       </div>
-      
-        
           <div className=" flex justify-start pl-52">
             <ImageUpload/>
           </div>
-        
-      
-
         <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
           <div>
             <h2 className="text-center font-semibold">About {guide?.name}</h2>
