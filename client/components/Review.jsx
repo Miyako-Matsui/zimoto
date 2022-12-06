@@ -15,7 +15,10 @@ function Review({ guideId }) {
   return (
     <>
       <div className="p-2 leading-8">
-        <h1 className="font-semibold text-xl pt-8"> Reviews </h1>
+        <h1 className="font-semibold text-xl pt-8 text-left text-[#2d3951]">
+          {' '}
+          Reviews{' '}
+        </h1>
         {reviews.length > 0 &&
           reviews.map((review) => {
             return (

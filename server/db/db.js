@@ -19,7 +19,8 @@ function getGuides(db = connection) {
     'fee',
     'contact_number AS contactNumber',
     'email', 
-    'averageRating'
+    'averageRating',
+    'picture_url'
     )
   .leftJoin(getAverageRating(), 'guide_id', 'guides.id')
   .limit(20)
@@ -68,7 +69,8 @@ function getFilteredGuides(filters, db = connection) {
       'fee',
       'contact_number AS contactNumber',
       'email', 
-      'averageRating'
+      'averageRating',
+      'picture_url'
     )
     .join(getFilteredRatings(minRating, maxRating), 'filteredRatings.guide_id', 'guides.id')
     .join(getFilteredLocations(country, city),'filteredLocations.guide_id', 'guides.id')
