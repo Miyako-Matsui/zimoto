@@ -91,8 +91,8 @@ function Filters() {
   }, [])
 
   return(
-    <div className=" flex justify-center">
-      <form onSubmit={handleSubmit} className=" grid grid-cols-2 w-1/2">
+    <div className=" flex justify-center lg:w-2/3 mx-auto">
+      <form onSubmit={handleSubmit} className=" grid grid-cols-1 md:grid-cols-2 ">
 
         {formConfig.map(field => 
           <div key ={field.keyName} className=" flex justify-end pb-4" >
@@ -101,10 +101,10 @@ function Filters() {
             {
               //for text adn number fields render input tag
              (field.type !== 'selection') ? 
-             <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder= 'Any' onChange= {handleChange} className =" w-2/3" />
+             <input type= {field.type} name={field.keyName} value={filters[field.keyName]} placeholder= 'Any' onChange= {handleChange} className =" w-7/12 lg:w-1/2" />
               :
               //for selection render list of option
-            <select name={field.keyName} value={filters[field.keyName]} onChange= {handleChange} className =" w-2/3">
+            <select name={field.keyName} value={filters[field.keyName]} onChange= {handleChange} className ="  w-7/12 lg:w-1/2">
               <option value = '' > Any </option>
               {field.options.map((option, index) =>
                 <option key={index} value={option} > {option} </option>
