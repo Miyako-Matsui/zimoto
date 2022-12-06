@@ -14,7 +14,7 @@ function Home() {
   },[])
   
   return(
-    <div className="lg:w-2/3 mx-auto p-10 lg:p-10 mb-15 ">
+    <div className="lg:w-2/3 mx-auto p-10 mb-15 ">
       <Filters />
 
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
