@@ -10,10 +10,10 @@ function ProfileDelete() {
 
   function removeProfile(id) {
 
-    deleteGuide(id)
       getAccessTokenSilently()
         .then((token) => {
-          navigate(token, '/')
+          deleteGuide(id, token)
+          navigate('/')
         })
         .catch((err) => setError(err.message))
   }
