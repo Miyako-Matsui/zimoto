@@ -38,6 +38,7 @@
     "express": "^4.17.2",
     "express-jwt": "^7.7.7",
     "express-jwt-authz": "^2.4.1",
+    "jwks-rsa": "^3.0.0",
     "knex": "^2.3.0",
     "pg": "^8.8.0",
     "sqlite3": "^5.1.2",

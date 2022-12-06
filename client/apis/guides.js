@@ -17,9 +17,10 @@ export function addGuide(newGuide) {
     })
 }
 
-export function deleteGuide(id) {
+export function deleteGuide(id, token) {
   return request
   .del(rootUrl + `/profiles/${id}`)
+  .set('Authorization', `Bearer ${token}`)
   .then((res) => res)
   .catch((err) => {
     console.log(err.message)

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { addGuide } from '.././apis/guides'
 import { fetchAGuide } from '../apis/individualGuide'
 import { useNavigate } from 'react-router-dom'
 
 function addProfile() {
   const navigate = useNavigate()
+  const { getAccessTokenSilently } = useAuth0()
 
   const [guideData, setGuideData] = useState({
     name: '',
@@ -29,13 +31,20 @@ function addProfile() {
 
     setGuideData(Number(guideData.contact_number))
 
-    await addGuide(guideData).then((res) => {
-      console.log(res)
+    getAccessTokenSilently()
+        .then((token) => {
+          addGuide(guideData, token)
+          navigate('/')
+        })
+        .catch((err) => setError(err.message))
 
-      navigate('/')
-    })
+    // await addGuide(guideData).then((res) => {
+    //   console.log(res)
 
-    console.log('done', guideData)
+    //   navigate('/')
+    // })
+
+    // console.log('done', guideData)
   }
 
   // useEffect(() => {
