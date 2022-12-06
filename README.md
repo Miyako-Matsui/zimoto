@@ -91,3 +91,4 @@
 
 ## Our app is deployed!
 http://zimoto.devacademy.nz/
+Screenshot: https://github.com/hihi-2022/zimoto/blob/Home-page/Screenshot%202022-12-06%20at%203.48.27%20PM.png
