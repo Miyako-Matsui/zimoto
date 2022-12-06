@@ -14,10 +14,10 @@ export default function ReviewEditDelete(review) {
     setShowForm(!showForm)
   }
 
-  function handleEdit(e) {
-    const userEditTitle = document.getElementById('editTitle').value
-    const userEditReview = document.getElementById('editReview').value
-    const userEditRating = document.getElementById('editRating').value
+  function handleEdit () {
+    const userEditTitle = document.getElementById("editTitle").value
+    const userEditReview = document.getElementById("editReview").value
+    const userEditRating = document.getElementById("editRating").value
 
     const editedReview = {
       title: userEditTitle,

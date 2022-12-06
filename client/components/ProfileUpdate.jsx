@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
 import { fetchAGuide } from '../apis/individualGuide'
 import { updateGuide } from '../apis/guides'
 
@@ -68,72 +67,84 @@ function ProfileUpdate() {
       </button>
 
       {showForm && (
+      <div>
+      <h2 className="p-10">Please fill this out:</h2>
+      <form onSubmit={handleSubmit}>
         <div>
-          <h2 className="p-10">Please fill this out:</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                defaultValue={name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Bio</label>
-              <input
-                type="text"
-                id="bio"
-                name="bio"
-                defaultValue={bio}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Language</label>
-              <input
-                type="text"
-                id="language"
-                name="language"
-                defaultValue={language}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Fee</label>
-              <input
-                type="text"
-                id="fee"
-                name="fee"
-                defaultValue={fee}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Contact Number</label>
-              <input
-                type="number"
-                id="contact_number"
-                name="contact_number"
-                defaultValue={contact_number}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Email</label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                defaultValue={email}
-                onChange={handleChange}
-              />
-            </div>
-            <button type="submit">Save</button>
-          </form>
+          <label>
+            Name
+          <input
+            type="text"
+            id="name"
+            name="name"
+            defaultValue={name}
+            onChange={handleChange}
+            />
+            </label>
         </div>
+        <div>
+          <label>
+            Bio
+          <input
+            type="text"
+            id="bio"
+            name="bio"
+            defaultValue={bio}
+            onChange={handleChange}
+            />
+            </label>
+        </div>
+        <div>
+          <label>
+            Language
+          <input
+            type="text"
+            id="language"
+            name="language"
+            defaultValue={language}
+            onChange={handleChange}
+            />
+            </label>
+        </div>
+        <div>
+          <label>
+            Fee
+          <input
+            type="text"
+            id="fee"
+            name="fee"
+            defaultValue={fee}
+            onChange={handleChange}
+            />
+            </label>
+        </div>
+        <div>
+          <label>
+            Contact Number
+          <input
+            type="number"
+            id="contact_number"
+            name="contact_number"
+            defaultValue={contact_number}
+            onChange={handleChange}
+            />
+            </label>
+        </div>
+        <div>
+          <label>
+            Email
+          <input
+            type="text"
+            id="email"
+            name="email"
+            defaultValue={email}
+            onChange={handleChange}
+            />
+            </label>
+        </div>
+        <button type="submit">Save</button>
+      </form>
+      </div>
       )}
     </>
   )
