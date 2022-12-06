@@ -26,7 +26,7 @@ function GuideProfile() {
   }, [])
 
   return (
-    <div className="w-1/2 mx-auto text-center flex flex-col">
+    <div className="w-2/3 mx-auto text-center flex flex-col">
       <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
         <div className="block pt-16 break-nomal md:break-all ">
           <div className=" flex justify-center  space-x-10">
@@ -50,28 +50,34 @@ function GuideProfile() {
         </div>
       </div>
 
-        <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
-          <div>
-            <h2 className="text-center font-semibold">About {guide?.name}</h2>
-          </div>
-          <p className="leading-10">{guide?.bio}</p>
-          <h2 className="text-center font-semibold">More about your local guide</h2>
-          <ul className="list-disc list-style-position: inside ">
-            <li>Languages : </li>
-            <li>{guide?.language}</li>
-            <li>Fee : ${guide?.fee}</li>
-            <li>Contact Numbe : {guide?.contactNumber}</li>
-            <li>Email : {guide?.email}</li>
-          </ul>
+      <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
+        <div>
+          <h2 className="text-center font-semibold">About {guide?.name}</h2>
         </div>
+        <p className="leading-10">{guide?.bio}</p>
+        <h2 className="text-center font-semibold">
+          More about your local guide
+        </h2>
+        <ul className="list-disc list-style-position: inside ">
+          <li>Languages : </li>
+          <li className="list-none">{guide?.language}</li>
+          <li>Fee : ${guide?.fee}</li>
+          <li>Contact Numbe : {guide?.contactNumber}</li>
+          <li>Email : {guide?.email}</li>
+        </ul>
+      </div>
       <IfAuthenticated>
         <div className="border-t border-[#2d3951] mt-5">
           <ProfileUpdate />
           <ProfileDelete />
         </div>
       </IfAuthenticated>
-      <Review guideId={id} />
-      <NewReview />
+      <div className="border-t border-[#2d3951] mt-5">
+        <Review guideId={id} />
+      </div>
+      <div className="border-t border-[#2d3951] mt-5">
+        <NewReview />
+      </div>
     </div>
   )
 }
