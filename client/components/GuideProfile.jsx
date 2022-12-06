@@ -11,14 +11,12 @@ import { IfAuthenticated } from './Authenticated'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
-
   const { id } = useParams()
-
   useEffect(() => {
     fetchAGuide(id)
       .then((res) => {
-        setGuide(res)
         console.log(res)
+        setGuide(res)
       })
       .catch((err) => {
         console.log(err.message)

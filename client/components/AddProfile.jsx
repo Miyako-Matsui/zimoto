@@ -16,23 +16,28 @@ function addProfile() {
     widget.current = cloudinary.current.createUploadWidget({
       cloudName: "dhstdr0nk",
       uploadPreset: "zimoto",
-    }, async function(error, result){
-
-      console.log(result.data.event)
-      if(result.data.event === 'abort'){
+    },function(error, result){
+      if(result.data.event == 'abort'){
         const img = uploadedImage.current
         setImage(img)
+        console.log("the image", img)
+        console.log("the actual image", Image)
       }
-      if(result.data.info.files[0].uploadInfo.path !== undefined){
-      imgPath.current = result.data.info.files[0].uploadInfo.path
+      if(result?.data.info.files[0].uploadInfo.path !== undefined){
+        imgPath.current = result?.data.info.files[0].uploadInfo.path
+        console.log("img path", imgPath)
       }
       if(imgPath.current !== null){
         uploadedImage.current = imgUrl + imgPath.current
-      
       }
-
+      console.log("setimage, image", Image)
     })
+    console.log("setimage, image", Image)
   }, []);
+
+  useEffect(() => {
+    console.log(Image)
+  }, [Image])
 
   const [guideData, setGuideData] = useState({
     name: '',
@@ -45,26 +50,18 @@ function addProfile() {
   })
 
   const handleChange = (evt) => {
-
     setGuideData({
       ...guideData,
       [evt.target.name]: evt.target.value,
+      picture_url: Image
     })
   }
 
   const handleSubmit = async (evt) => {
-
     evt.preventDefault()
-
-    setGuideData(Number(guideData.contact_number))
-
-    await addGuide(guideData).then((res) => {
-      console.log(res)
-
+    await addGuide(guideData).then(() => {
       navigate('/')
     })
-
-    console.log('done', guideData)
   }
 
 
