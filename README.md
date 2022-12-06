@@ -88,3 +88,6 @@
 3.30 programming
 4.45 retro (what's working well, opportunuties to improve, actions to be put in place)
 5pm(ish) finish
+
+## Our app is deployed!
+http://zimoto.devacademy.nz/
