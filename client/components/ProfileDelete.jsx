@@ -22,7 +22,7 @@ function ProfileDelete() {
     <>
       <div>
         <button
-          className="bg-[#C2DEDC] hover:bg-[#DAC0DD] text-[#2d3951] font-bold py-2 px-10 rounded"
+          className="bg-[#C2DEDC] hover:bg-[#DAC0DD] text-[#2d3951] font-bold py-2 px-4 rounded"
           onClick={(e) => {
             console.log('delete profile')
             e.preventDefault()

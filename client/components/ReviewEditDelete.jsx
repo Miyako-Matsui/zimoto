@@ -36,10 +36,10 @@ export default function ReviewEditDelete(review) {
     <>
       <IfAuthenticated>
         {showForm && (
-          <div className="place-items-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <div className="place-items-center max-w-sm p-8 m-6 text-left rounded shadow-md bg-[#E1EFEE]  dark:bg-gray-800 dark:border-gray-700">
             <form onSubmit={handleEdit}>
-              <label className="form-label mb-2 text-gray-700">
-                Edit Review:
+              <label className="form-label mb-2 text-black">
+                Edit Review
                 <h5 htmlFor="editTitle">Title:</h5>
                 <textarea
                   id="editTitle"
@@ -104,12 +104,13 @@ export default function ReviewEditDelete(review) {
                   />
                 </div>
               </label>
-
-              <input
-                type="submit"
-                className="bg-green-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded"
-                value="Submit"
-              />
+              <div className="text-center">
+                <input
+                  type="submit"
+                  className="bg-[#E1EFEE] hover:bg-[#C3DDC0] text-[#2d3951] font-bold py-2 px-4 rounded"
+                  value="Submit"
+                />
+              </div>
             </form>
           </div>
         )}
