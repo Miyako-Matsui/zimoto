@@ -10,11 +10,7 @@ function ProfileDelete() {
   const { getAccessTokenSilently } = useAuth0()
 
   function removeProfile(id) {
-<<<<<<< HEAD
-=======
 
-    
->>>>>>> cd021b9 (auth stretch WIP)
     deleteGuide(id)
       getAccessTokenSilently()
         .then((token) => {
