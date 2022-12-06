@@ -30,8 +30,9 @@ router.post('/add', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params
+  const auth0Id = req.auth?.sub
 
-  db.deleteAGuide(id)
+  db.deleteAGuide(id, auth0Id)
     .then((numOfDeletes) => {
       res.json({ deletes: numOfDeletes })
     })
