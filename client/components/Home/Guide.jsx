@@ -11,7 +11,7 @@ function Guide({guide}) {
         </div>
         <div className=" p-4 ">
           <h1 className=" text-xl"> {name} </h1>
-          <h2> Rating: {averageRating && <span> {averageRating.toFixed(1)} </span>} </h2>
+          <h2> Rating: {averageRating && <span> {Math.round(averageRating * 100)/100} </span>} </h2>
           <h2> Fee: ${fee}/hour </h2>
         </div>
       </div>
