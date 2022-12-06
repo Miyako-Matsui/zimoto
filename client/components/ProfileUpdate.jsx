@@ -3,11 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { fetchAGuide } from '../apis/individualGuide'
 import { updateGuide } from '../apis/guides'
 
-
 // Use state to store form info and send it through to the api to go to the backend (send api id and body of form)
 
 function ProfileUpdate() {
-
   const { id } = useParams()
   const navigate = useNavigate()
   const initialObj = useRef({})
@@ -27,7 +25,6 @@ function ProfileUpdate() {
   const [showForm, setShowForm] = useState(false)
 
   const [guideDetails, setGuideDetails] = useState({
-    
     name: name,
     bio: bio,
     language: language,
@@ -36,12 +33,11 @@ function ProfileUpdate() {
     email: email,
   })
 
-  function showEditForm(){
+  function showEditForm() {
     setShowForm(!showForm)
   }
 
   const handleChange = (evt) => {
-
     setGuideDetails({
       ...guideDetails,
       [evt.target.name]: evt.target.value,
@@ -49,7 +45,6 @@ function ProfileUpdate() {
   }
 
   const handleSubmit = async (evt) => {
-
     evt.preventDefault()
 
     setGuideDetails(Number(guideDetails.contact_number))
@@ -61,13 +56,14 @@ function ProfileUpdate() {
     })
   }
 
-
   return (
-
     <>
-
-      <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-         onClick={showEditForm}> Update Profile
+      <button
+        className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded"
+        onClick={showEditForm}
+      >
+        {' '}
+        Edit Profile
       </button>
 
       {showForm && (
@@ -153,6 +149,5 @@ function ProfileUpdate() {
     </>
   )
 }
-
 
 export default ProfileUpdate

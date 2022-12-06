@@ -1,25 +1,28 @@
 import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { deleteGuide } from '../apis/guides'
 
 function ProfileDelete() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { getAccessTokenSilently } = useAuth0()
 
   function removeProfile(id) {
-    
+
     deleteGuide(id)
-      .then(() => {
-        navigate('/')
-      })
-      .catch((err) => console.log(err))
+      getAccessTokenSilently()
+        .then((token) => {
+          navigate(token, '/')
+        })
+        .catch((err) => setError(err.message))
   }
 
   return (
     <>
       <div>
         <button
-          className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded"
+          className="bg-[#C2DEDC] hover:bg-[#DAC0DD] text-[#2d3951] font-bold py-2 px-10 rounded"
           onClick={(e) => {
             console.log('delete profile')
             e.preventDefault()
@@ -29,7 +32,6 @@ function ProfileDelete() {
           Delete Profile
         </button>
       </div>
-
     </>
   )
 }

@@ -14,10 +14,10 @@ function Home() {
   },[])
   
   return(
-    <div className=" w-2/3 mx-auto pt-5 pb-20">
+    <div className="lg:w-2/3 mx-auto p-10 lg:p-10 mb-15 ">
       <Filters />
 
-      <div className=" grid grid-cols-4 gap-10 mt-10">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
         {guides.map(guide => 
           <Guide key={guide.id} guide={guide} />
           )}
