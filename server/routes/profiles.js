@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../db/profiles')
+const dbLoc = require('../db/locations')
 
 // POST /api/v1/profiles/
 
@@ -18,20 +19,30 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/add', (req, res) => {
-  db.addAGuide(req.body)
+
+  const { name, bio, language, fee, contact_number, email, picture_url, country, city } = req.body 
+  
+  db.addAGuide({name, bio, language, fee, contact_number, email, picture_url})
     .then((response) => {
-      res.json(response) // route will respond with this it's just a number given by the insert in db
+      return response
+    }).then((guideIdArr) => {
+      dbLoc.addLocation({country, city, guide_id: guideIdArr[0]})
+        .then(() => {
+        res.json(guideIdArr[0]) // Response for whole route
+    })
     })
     .catch((err) => {
       res.status(500).json({ message: err.message })
-    })
+  })
 })
+
 // DELETE /api/v1/profiles/
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params
+  const auth0Id = req.auth?.sub
 
-  db.deleteAGuide(id)
+  db.deleteAGuide(id, auth0Id)
     .then((numOfDeletes) => {
       res.json({ deletes: numOfDeletes })
     })

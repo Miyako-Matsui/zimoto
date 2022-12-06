@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom'
 import { updateGuide } from '../apis/guides'
 import { fetchAGuide } from '../apis/individualGuide'
+import { IfAuthenticated } from './Authenticated'
 
 
 const UploadWidget = () => {
@@ -53,9 +54,11 @@ const UploadWidget = () => {
 
   return (
     <>
+    <IfAuthenticated>
       <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => widget.current.open()}>
         Update Image
       </button>
+    </IfAuthenticated>
     </>
   )
 }
