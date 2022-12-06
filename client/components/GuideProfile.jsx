@@ -40,10 +40,10 @@ function GuideProfile() {
               <li className="font-semibold text-center">{guide?.name}</li>
               <li className="font-normal">I would like to guide for you in </li>
               <li className="font-semibold text-center">
-                {guide?.country} &nbsp;<span className="font-normal">of</span>
+                {guide?.city} &nbsp;<span className="font-normal">of</span>
                 &nbsp;
                 {'  '}
-                {guide?.city}
+                {guide?.country}
               </li>
             </ul>
           </div>
@@ -51,39 +51,36 @@ function GuideProfile() {
       </div>
 
       <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
-        <div>
-          <h2 className="text-center font-semibold">About {guide?.name}</h2>
+        <div className="m-2">
+          <h2 className="font-semibold text-xl">About {guide?.name}</h2>
+          <p className="leading-10">{guide?.bio}</p>
         </div>
-        <p className="leading-10">{guide?.bio}</p>
-        <h2 className="text-center font-semibold">
-          More about your local guide
-        </h2>
-        <ul className="list-disc list-style-position: inside ">
-          <li>Languages : </li>
-          <li className="list-none">{guide?.language}</li>
-          <li>Fee : ${guide?.fee}</li>
-          <li>Contact Numbe : {guide?.contactNumber}</li>
-          <li>Email : {guide?.email}</li>
-        </ul>
+        <div className="m-2 pt-6">
+          <h2 className="font-semibold text-xl">More about your local guide</h2>
+          <ul className="list-disc list-style-position: inside ">
+            <li>Languages : </li>
+            <li className="list-none">{guide?.language}</li>
+            <li>Fee : ${guide?.fee}</li>
+            <li>Contact Numbe : {guide?.contactNumber}</li>
+            <li>Email : {guide?.email}</li>
+          </ul>
+        </div>
       </div>
       <IfAuthenticated>
-        <div className="border-t border-[#2d3951] mt-5">
+        <div className="border-t border-[#c2dedc] p-2">
           <ProfileUpdate />
+          <div className="p-2"></div>
           <ProfileDelete />
         </div>
       </IfAuthenticated>
-      <div className="border-t border-[#2d3951] mt-5">
+      <div className="border-t border-[#dab553] m-6">
         <Review guideId={id} />
       </div>
-      <div className="border-t border-[#2d3951] mt-5">
+      <div className="border-t border-[#dab553] p-6">
         <NewReview />
       </div>
     </div>
   )
 }
-
-// check profile belongs to authenticated user
-// if yes, render update and delete buttons
-// if no, update and delete buttons do not render
 
 export default GuideProfile
