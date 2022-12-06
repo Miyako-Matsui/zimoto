@@ -7,7 +7,7 @@ exports.up = function (knex) {
     table.integer('fee')
     table.bigint('contact_number')
     table.string('email')
-
+    table.string('picture_url')
 
   })
 }

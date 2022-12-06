@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
 import { useParams } from 'react-router-dom'
 import { fetchAGuide } from '../apis/individualGuide'
 import '../index.css'
@@ -7,17 +6,16 @@ import ProfileDelete from './ProfileDelete'
 import ProfileUpdate from './ProfileUpdate'
 import NewReview from './NewReview'
 import Review from './Review'
+import ImageUpload from './ImageUpload'
 import { IfAuthenticated } from './Authenticated'
 
 function GuideProfile() {
   const [guide, setGuide] = useState([])
-  const { user, isAuthenticated } = useAuth0
-
   const { id } = useParams()
-
   useEffect(() => {
     fetchAGuide(id)
       .then((res) => {
+        console.log(res)
         setGuide(res)
       })
       .catch((err) => {
@@ -32,7 +30,7 @@ function GuideProfile() {
           <div className=" flex justify-center  space-x-10">
             <img
               className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
-              src="https://1.bp.blogspot.com/-umW__JVzY78/Vf-aswLCMdI/AAAAAAAAyJg/hvvJJQqrxMI/s800/icon_business_man16.png"
+              src={guide?.picture_url}
               alt="img"
             />
             <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
@@ -50,7 +48,9 @@ function GuideProfile() {
           </div>
         </div>
       </div>
-
+      <div className=" flex justify-start pl-52">
+        <ImageUpload />
+      </div>
       <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
         <div className="m-2">
           <h2 className="font-semibold text-xl">About {guide?.name}</h2>

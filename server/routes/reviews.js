@@ -1,5 +1,5 @@
 const express = require('express')
-
+// const checkJwt = require ('../auth0.js')
 const db = require('../db/reviews')
 
 const router = express.Router()
