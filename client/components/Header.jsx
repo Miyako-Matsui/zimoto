@@ -1,4 +1,5 @@
 import React from 'react'
+import BurgerMenu from './BurgerMenu'
 import Logo from './Logo'
 import Nav from './Nav'
 
@@ -9,6 +10,7 @@ function Header() {
         <Logo />
       </div>
       <div>
+        <BurgerMenu />
         <Nav />
       </div>
     </>
