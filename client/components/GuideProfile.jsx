@@ -26,7 +26,7 @@ function GuideProfile() {
   }, [])
 
   return (
-    <div className="w-2/3 mx-auto text-center flex flex-col">
+    <div className="w-2/3 mx-auto text-center flex flex-col lg:w-2/3 p-10 lg:p-10 mb-15 ">
       <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
         <div className="block pt-16 break-nomal md:break-all ">
           <div className=" flex justify-center  space-x-10">
@@ -35,12 +35,13 @@ function GuideProfile() {
               src="https://1.bp.blogspot.com/-umW__JVzY78/Vf-aswLCMdI/AAAAAAAAyJg/hvvJJQqrxMI/s800/icon_business_man16.png"
               alt="img"
             />
-            <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all">
+            <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
               <li className="font-normal">Hello! I'm </li>
               <li className="font-semibold text-center">{guide?.name}</li>
-              <li className="font-normal">I would like to guide for you in </li>
+              <li className="font-normal">I would like to be your guide to</li>
               <li className="font-semibold text-center">
-                {guide?.city} &nbsp;<span className="font-normal">of</span>
+                {guide?.city}
+                <span className="font-normal">,</span>
                 &nbsp;
                 {'  '}
                 {guide?.country}
@@ -53,7 +54,7 @@ function GuideProfile() {
       <div className="p-8 m-6 text-left rounded shadow-md bg-[#d2e6e3] leading-8">
         <div className="m-2">
           <h2 className="font-semibold text-xl">About {guide?.name}</h2>
-          <p className="leading-10">{guide?.bio}</p>
+          <p className="leading-8">{guide?.bio}</p>
         </div>
         <div className="m-2 pt-6">
           <h2 className="font-semibold text-xl">More about your local guide</h2>
@@ -67,7 +68,7 @@ function GuideProfile() {
         </div>
       </div>
       <IfAuthenticated>
-        <div className="border-t border-[#c2dedc] p-2">
+        <div className="border-t border-[#c2dedc] p-2 flex justify-end">
           <ProfileUpdate />
           <div className="p-2"></div>
           <ProfileDelete />

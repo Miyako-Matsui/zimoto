@@ -59,6 +59,7 @@ function ProfileUpdate() {
 
   return (
     <>
+      {/* {!showForm && ( */}
       <button
         className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded"
         onClick={showEditForm}
@@ -66,72 +67,88 @@ function ProfileUpdate() {
         {' '}
         Edit Profile
       </button>
+      {/* )} */}
 
       {showForm && (
-        <div>
-          <h2 className="p-10">Please fill this out:</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Name</label>
+        <div className=" max-w-full p-4 m-6 rounded shadow-md bg-[#E1EFEE]  dark:bg-gray-800 dark:border-gray-700 ">
+          <h1 className="p-8 text-left font-medium">Edit profile</h1>
+          <form onSubmit={handleSubmit} className="leading-3 text-left">
+            <div className="p-1">
+              <h1 className="p-2">Name : </h1>
               <input
                 type="text"
                 id="name"
                 name="name"
+                size="60"
                 defaultValue={name}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label>Bio</label>
-              <input
+            <div className="p-1 ">
+              <h1 className="p-2">Bio : </h1>
+              <textarea
+                className="leading-6"
                 type="text"
                 id="bio"
                 name="bio"
+                rows="7"
+                cols="60"
                 defaultValue={bio}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label>Language</label>
+            <div className="p-1">
+              <h1 className="p-2">Language : </h1>
               <input
                 type="text"
                 id="language"
                 name="language"
+                size="60"
                 defaultValue={language}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label>Fee</label>
+            <div className="p-1">
+              <h1 className="p-2">Fee : </h1>
               <input
                 type="text"
                 id="fee"
                 name="fee"
+                size="60"
                 defaultValue={fee}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label>Contact Number</label>
+            <div className="p-1">
+              <h1 className="p-2">Contact Number : </h1>
               <input
-                type="number"
+                type="input"
                 id="contact_number"
                 name="contact_number"
+                size="60"
                 defaultValue={contact_number}
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label>Email</label>
+            <div className="p-1">
+              <h1 className="p-2">Email : </h1>
               <input
                 type="text"
                 id="email"
                 name="email"
+                size="60"
                 defaultValue={email}
                 onChange={handleChange}
               />
             </div>
-            <button type="submit">Save</button>
+            <div className="text-center">
+              <button
+                type="submit"
+                className="bg-[#E1EFEE] hover:bg-[#C3DDC0] text-[#2d3951] font-bold py-2 px-4 rounded text-sm"
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       )}
