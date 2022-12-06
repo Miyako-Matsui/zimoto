@@ -14,6 +14,8 @@ function Home() {
   },[])
   
   return(
+    <>
+    <h1 className='text-6xl text-center m-7'>Local, friendly guides</h1>
     <div className="lg:w-2/3 mx-auto p-10 lg:p-10 mb-15 ">
       <Filters />
 
@@ -23,6 +25,7 @@ function Home() {
           )}
       </div>
     </div>
+    </>
   )
 }
 
