@@ -62,7 +62,7 @@ function GuideProfile() {
               <li>Languages : </li>
               <li className="list-none">{guide?.language}</li>
               <li>Fee : ${guide?.fee}</li>
-              <li>Contact Numbe : {guide?.contactNumber}</li>
+              <li>Contact Number : {guide?.contactNumber}</li>
               <li>Email : {guide?.email}</li>
             </ul>
           </div>

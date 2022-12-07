@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchGuidesThunk } from '../../actions/guides'
+import Footer from '../Footer';
 import Filters from "./Filters";
 import Guide from "./Guide";
 
@@ -25,6 +26,7 @@ function Home() {
           )}
       </div>
     </div>
+    <Footer/>
     </>
   )
 }
