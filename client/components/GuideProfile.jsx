@@ -25,29 +25,27 @@ function GuideProfile() {
 
   return (
     <>
-    <h1 className='text-6xl text-center m-7'>Guide Profile</h1>
-      <div className="w-2/3 mx-auto text-center flex flex-col lg:w-2/3 p-10 lg:p-10 mb-15 ">
-        <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
-          <div className="block pt-16 break-nomal md:break-all ">
-            <div className=" flex justify-center  space-x-10">
-              <img
-                className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
-                src={guide?.picture_url}
-                alt="img"
-              />
-              <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
-                <li className="font-normal">Hello! I'm </li>
-                <li className="font-semibold text-center">{guide?.name}</li>
-                <li className="font-normal">I would like to be your guide to</li>
-                <li className="font-semibold text-center">
-                  {guide?.city}
-                  <span className="font-normal">,</span>
-                  &nbsp;
-                  {'  '}
-                  {guide?.country}
-                </li>
-              </ul>
-            </div>
+    <div className="w-2/3 mx-auto text-center flex flex-col lg:w-2/3 p-10 lg:p-10 mb-15 ">
+      <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
+        <div className="block pt-16 break-nomal md:break-all ">
+          <div className=" flex justify-center  space-x-10">
+            <img
+              className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
+              src={guide?.picture_url}
+              alt="img"
+            />
+            <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
+              <li className="font-normal">Hello! I&apos;m </li>
+              <li className="font-semibold text-center">{guide?.name}</li>
+              <li className="font-normal">I would like to be your guide to</li>
+              <li className="font-semibold text-center">
+                {guide?.city}
+                <span className="font-normal">,</span>
+                &nbsp;
+                {'  '}
+                {guide?.country}
+              </li>
+            </ul>
           </div>
         </div>
         <div className=" flex justify-start pl-52">
@@ -82,6 +80,7 @@ function GuideProfile() {
         <div className="border-t border-[#dab553] p-6">
           <NewReview />
         </div>
+      </div>
       </div>
     </>
   )
