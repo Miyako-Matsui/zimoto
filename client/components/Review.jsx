@@ -43,7 +43,7 @@ function Review({ guideId }) {
                     value={review.rating}
                   />
                   </div>
-                <p className="text-left text-xl p-5 leading-relaxed">
+                <p className="text-left text-xl font-bold p-5 leading-relaxed">
                   {review.title}
                 </p>
                 <p className="text-left leading-6">{review.text}</p>
