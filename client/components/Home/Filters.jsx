@@ -83,9 +83,11 @@ function Filters() {
   // List of countries features
   
 
-  useEffect(async () => {
-    const result = await fetchCountryList()
-    setCountriesData(result)
+  useEffect(() => {
+    fetchCountryList()
+      .then(result => {
+        setCountriesData(result)
+      })
   }, [])
 
   return(
