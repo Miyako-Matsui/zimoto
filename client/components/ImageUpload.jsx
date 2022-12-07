@@ -52,7 +52,7 @@ const UploadWidget = () => {
     <>
       <IfAuthenticated>
         <button
-          className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded m-5"
+          className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded m-5 "
           onClick={() => widget.current.open()}
         >
           Update Image

@@ -25,32 +25,30 @@ function GuideProfile() {
 
   return (
     <>
-      <div className="w-2/3 mx-auto text-center flex flex-col lg:w-2/3 p-10 lg:p-10 mb-15 ">
+      <div className="mx-auto text-center flex flex-col lg:w-2/3 p-10 lg:p-10 mb-15 ">
         <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
           <div className="block pt-10 break-nomal md:break-all ">
-            <div className=" flex justify-center  space-x-10">
+            <div className=" flex justify-center flex-col lg:flex-row space-x-10">
               <img
                 className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
                 src={guide?.picture_url}
                 alt="img"
               />
-              <ul className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
-                <li className="font-normal">Hello! I'm </li>
-                <li className="font-semibold text-center">{guide?.name}</li>
-                <li className="font-normal">
-                  I would like to be your guide to
-                </li>
-                <li className="font-semibold text-center">
+              <p className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
+                <p className="font-normal">Hello! I'm </p>
+                <p className="font-semibold text-center">{guide?.name}</p>
+                <p className="font-normal">I would like to be your guide to</p>
+                <p className="font-semibold text-center">
                   {guide?.city}
                   <span className="font-normal">,</span>
                   &nbsp;
                   {'  '}
                   {guide?.country}
-                </li>
-              </ul>
+                </p>
+              </p>
             </div>
           </div>
-          <div className="flex justify-start pl-56">
+          <div className="flex lg:justify-start lg:pl-56 self-center pl-16">
             <ImageUpload />
           </div>
           <IfAuthenticated>
