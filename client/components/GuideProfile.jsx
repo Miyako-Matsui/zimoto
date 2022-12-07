@@ -34,7 +34,7 @@ function GuideProfile() {
                 src={guide?.picture_url}
                 alt="img"
               />
-              <p className="pt-10 m-3 p-6 text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
+              <div className="text-left leading-10 break-nomal md:break-all mx-auto lg:p-10 mb-15 ">
                 <p className="font-normal">Hello! I'm </p>
                 <p className="font-semibold text-center">{guide?.name}</p>
                 <p className="font-normal">I would like to be your guide to</p>
@@ -45,7 +45,7 @@ function GuideProfile() {
                   {'  '}
                   {guide?.country}
                 </p>
-              </p>
+              </div>
             </div>
           </div>
           <div className="flex lg:justify-start lg:pl-56 self-center pl-16">

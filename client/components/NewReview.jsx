@@ -1,16 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { addReviewThunk } from '../actions'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import StarRatingComponent from 'react-star-rating-component';
 
 export default function NewReview() {
   const dispatch = useDispatch()
   const userId = useParams()
 
+  const [star, setStar] = useState(0)
+
+  function starClickHandle(e){
+    console.log(e)
+    setStar(e)
+  }
+
   function handleFormSubmit() {
     const userReview = document.getElementById('newReview').value
     const userTitle = document.getElementById('newTitle').value
-    const userRating = document.getElementById('newRating').value
+    const userRating = star
 
     const newRevObj = {
       title: userTitle,
@@ -22,7 +30,6 @@ export default function NewReview() {
 
     document.getElementById('newReview').value = ''
     document.getElementById('newTitle').value = ''
-    document.getElementById('newRating').value = '5'
   }
 
   return (
@@ -82,16 +89,16 @@ export default function NewReview() {
           </label>
           <label className="form-label mb-2 text-gray-700">
             <h5> Rating: </h5>
-            <div className="slidecontainer">
-              <input
+            <div> {star}/5 </div>
+              <StarRatingComponent 
                 id="newRating"
-                type="range"
-                min="1"
-                max="10"
-                defaultValue="5"
-                className="slider"
+                name="reviewRating" 
+                starCount={5}
+                onStarClick={starClickHandle}
+                starColor="#ffb400"
+                emptyStarColor="black"
               />
-            </div>
+            
           </label>
           <div className="text-center">
             <input

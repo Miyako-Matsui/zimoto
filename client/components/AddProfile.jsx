@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react'
 import React, { useState, useRef, useEffect } from 'react'
 import { addGuide } from '.././apis/guides'
 import { useNavigate } from 'react-router-dom'
@@ -13,7 +12,6 @@ function addProfile() {
     'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
   )
   const navigate = useNavigate()
-  const { getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
     cloudinary.current = window.cloudinary
@@ -24,10 +22,12 @@ function addProfile() {
       },
       function (error, result) {
         if (result.data.event == 'abort') {
-          const img = uploadedImage.current
+          let img = uploadedImage.current
+          if (img == undefined) {
+            img =
+              'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
+          }
           setImage(img)
-          console.log('the image', img)
-          console.log('the actual image', Image)
         }
         if (result?.data.info.files[0].uploadInfo.path !== undefined) {
           imgPath.current = result?.data.info.files[0].uploadInfo.path
@@ -36,20 +36,16 @@ function addProfile() {
         if (imgPath.current !== null) {
           uploadedImage.current = imgUrl + imgPath.current
         }
-        console.log('setimage, image', Image)
       }
     )
-    console.log('setimage, image', Image)
   }, [])
-
-  useEffect(() => {
-    console.log(Image)
-  }, [Image])
 
   const [guideData, setGuideData] = useState({
     name: '',
     bio: '',
     language: '',
+    country: '',
+    city: '',
     fee: '',
     contact_number: '',
     email: '',
@@ -64,28 +60,14 @@ function addProfile() {
     })
   }
 
-  const handleSubmit = async (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault()
 
-    setGuideData(Number(guideData.contact_number))
-
-    getAccessTokenSilently()
-      .then((token) => {
-        addGuide(guideData, token)
-        navigate('/')
+    addGuide(guideData)
+      .then((res) => {
+        navigate(`/profiles/${res}`)
       })
-      .catch((err) => setError(err.message))
-
-    // await addGuide(guideData).then((res) => {
-    //   console.log(res)
-
-    //   navigate('/')
-    // })
-
-    // console.log('done', guideData)
-    await addGuide(guideData).then(() => {
-      navigate('/')
-    })
+      .catch((err) => console.log(err.message))
   }
 
   return (
@@ -141,7 +123,30 @@ function addProfile() {
               onChange={handleChange}
             />
           </div>
-          <div className="p-2">
+
+          <div>
+            <h1>Country:</h1>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              size="60"
+              defaultValue={guideData.country}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <h1>City:</h1>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              size="60"
+              defaultValue={guideData.city}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
             <h1>Fee: </h1>
             <input
               type="text"
