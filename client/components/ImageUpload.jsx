@@ -29,7 +29,6 @@ const UploadWidget = () => {
         uploadPreset: 'zimoto',
       },
       async function (error, result) {
-        console.log(result.data.event)
         if (result.data.event === 'abort') {
           window.location.reload(false)
         }

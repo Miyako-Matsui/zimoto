@@ -21,7 +21,6 @@ function GuideProfile() {
   useEffect(() => {
     fetchAGuide(id)
       .then((res) => {
-        console.log(res)
         setGuide(res)
       })
       .catch((err) => {
@@ -68,9 +67,8 @@ function GuideProfile() {
                 More about your local guide
               </h2>
               <ul className="list-disc list-style-position: inside ">
-                <li>Languages : </li>
-                <li className="list-none">{guide?.language}</li>
-                <li>Fee : ${guide?.fee}</li>
+                <li>Languages : {guide?.language}</li>
+                <li>Fee : ${guide?.fee} per hour </li>
                 <li>Contact Number : {guide?.contactNumber}</li>
                 <li>Email : {guide?.email}</li>
               </ul>
