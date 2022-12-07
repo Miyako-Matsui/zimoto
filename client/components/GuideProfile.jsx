@@ -30,7 +30,7 @@ function GuideProfile() {
           <div className="block pt-10 break-nomal md:break-all ">
             <div className=" flex justify-center flex-col lg:flex-row space-x-10">
               <img
-                className="h-60 md:h-60 lg:h-60 rounded-full bg-white"
+                className="object-cover aspect-square h-60 md:h-60 lg:h-60 rounded-full bg-white"
                 src={guide?.picture_url}
                 alt="img"
               />

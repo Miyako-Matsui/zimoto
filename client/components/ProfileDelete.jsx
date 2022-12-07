@@ -15,7 +15,7 @@ function ProfileDelete() {
           deleteGuide(id, token)
           navigate('/')
         })
-        .catch((err) => setError(err.message))
+        .catch((err) => err.message)
   }
 
   return (
