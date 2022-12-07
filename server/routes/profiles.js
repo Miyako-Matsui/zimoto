@@ -19,21 +19,30 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/add', (req, res) => {
+  const {
+    name,
+    bio,
+    language,
+    fee,
+    contact_number,
+    email,
+    picture_url,
+    country,
+    city,
+  } = req.body
 
-  const { name, bio, language, fee, contact_number, email, picture_url, country, city } = req.body 
-  
-  db.addAGuide({name, bio, language, fee, contact_number, email, picture_url})
+  db.addAGuide({ name, bio, language, fee, contact_number, email, picture_url })
     .then((response) => {
       return response
-    }).then((guideIdArr) => {
-      dbLoc.addLocation({country, city, guide_id: guideIdArr[0]})
-        .then(() => {
-        res.json(guideIdArr[0]) // Response for whole route
     })
+    .then((guideIdArr) => {
+      dbLoc.addLocation({ country, city, guide_id: guideIdArr[0] }).then(() => {
+        res.json(guideIdArr[0]) // Response for whole route
+      })
     })
     .catch((err) => {
       res.status(500).json({ message: err.message })
-  })
+    })
 })
 
 // DELETE /api/v1/profiles/
@@ -57,8 +66,8 @@ router.patch('/:id', (req, res) => {
 
   db.updateAGuide(id, newDetails)
     .then(() => db.getAGuide(id))
-    .then(theOneGuide => res.json(theOneGuide))
-    .catch(err => res.status(500).json({ message: err.message }))
+    .then((theOneGuide) => res.json(theOneGuide))
+    .catch((err) => res.status(500).json({ message: err.message }))
 })
 
 module.exports = router

@@ -5,7 +5,7 @@ import { updateGuide } from '../apis/guides'
 
 // Use state to store form info and send it through to the api to go to the backend (send api id and body of form)
 
-function ProfileUpdate() {
+function ProfileUpdate({ showForm, showEditForm }) {
   const { id } = useParams()
   const navigate = useNavigate()
   const initialObj = useRef({})
@@ -22,8 +22,6 @@ function ProfileUpdate() {
 
   const { name, bio, language, fee, contact_number, email } = initialObj.current
 
-  const [showForm, setShowForm] = useState(false)
-
   const [guideDetails, setGuideDetails] = useState({
     name: name,
     bio: bio,
@@ -32,10 +30,6 @@ function ProfileUpdate() {
     contact_number: contact_number,
     email: email,
   })
-
-  function showEditForm() {
-    setShowForm(!showForm)
-  }
 
   const handleChange = (evt) => {
     setGuideDetails({
@@ -58,15 +52,24 @@ function ProfileUpdate() {
 
   return (
     <>
-      {/* {!showForm && ( */}
-      <button
-        className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded"
-        onClick={showEditForm}
-      >
-        {' '}
-        Edit Profile
-      </button>
-      {/* )} */}
+      {!showForm && (
+        <button
+          className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded"
+          onClick={showEditForm}
+        >
+          {' '}
+          Edit Profile
+        </button>
+      )}
+      {showForm && (
+        <button
+          className="bg-[#C2DEDC] hover:bg-[#C0D1DD] text-[#2d3951] font-bold py-2 px-4 rounded"
+          onClick={showEditForm}
+        >
+          {' '}
+          Return
+        </button>
+      )}
 
       {showForm && (
         <div className=" max-w-full p-4 m-6 rounded shadow-md bg-[#E1EFEE]  dark:bg-gray-800 dark:border-gray-700 ">

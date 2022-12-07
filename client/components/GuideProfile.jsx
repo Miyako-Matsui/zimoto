@@ -10,6 +10,12 @@ import ImageUpload from './ImageUpload'
 import { IfAuthenticated } from './Authenticated'
 
 function GuideProfile() {
+  const [showForm, setShowForm] = useState(false)
+
+  function showEditForm() {
+    setShowForm(!showForm)
+  }
+
   const [guide, setGuide] = useState([])
   const { id } = useParams()
   useEffect(() => {
@@ -58,22 +64,27 @@ function GuideProfile() {
               <p className="leading-8">{guide?.bio}</p>
             </div>
             <div className="m-2 pt-6">
-              <h2 className="font-semibold text-xl">More about your local guide</h2>
+              <h2 className="font-semibold text-xl">
+                More about your local guide
+              </h2>
               <ul className="list-disc list-style-position: inside ">
                 <li>Languages : </li>
                 <li className="list-none">{guide?.language}</li>
                 <li>Fee : ${guide?.fee}</li>
-                <li>Contact Numbe : {guide?.contactNumber}</li>
+                <li>Contact Number : {guide?.contactNumber}</li>
                 <li>Email : {guide?.email}</li>
               </ul>
             </div>
-          <IfAuthenticated>
-            <div className="border-t border-[#c2dedc] p-2 flex justify-end">
-              <ProfileUpdate />
-              <div className="p-2"></div>
-              <ProfileDelete />
-            </div>
-          </IfAuthenticated>
+            <IfAuthenticated>
+              <div className="border-t border-[#c2dedc] p-2 flex justify-center">
+                <ProfileUpdate
+                  showForm={showForm}
+                  showEditForm={showEditForm}
+                />
+                <div className="p-2"></div>
+                <ProfileDelete showForm={showForm} />
+              </div>
+            </IfAuthenticated>
           </div>
           <div className="border-t border-[#dab553] m-6">
             <Review guideId={id} />
