@@ -1,4 +1,3 @@
-const  {default: knex}  = require('knex')
 const connection = require('./connection')
 
 function getAverageRating(db = connection) {
