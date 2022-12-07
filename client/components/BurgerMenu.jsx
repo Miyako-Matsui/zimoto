@@ -12,7 +12,7 @@ function BurgerMenu() {
       width: '36px',
       height: '30px',
       left: '36px',
-      top: '36px'
+      top: '36px',
     },
     bmBurgerBars: {
       background: 'gray'
@@ -70,20 +70,22 @@ function BurgerMenu() {
   }
 
   return(
-    // <Menu left styles={ styles } />
     <Menu styles={ styles } >
-      {/* <Nav /> */}
+
+      <p >{user?.nickname}</p>
+
       <IfAuthenticated>
-        <Link to='/' className="hover:text-[#dab553] hover:font-bold" onClick={handleLogOff}>
-            Log off
-        </Link>
+        <br></br>
+          <Link to='/' className="hover:text-[#dab553] hover:font-bold" onClick={handleLogOff}>
+              Log off
+          </Link> 
+        <br></br>
       </IfAuthenticated>
       
       <IfAuthenticated>
 
-        <Link to='/profiles/add' className="hover:text-[#dab553] hover:font-bold">Add your profile</Link>
-          {/* <p>{user?.nickname}</p>
-          <p>{user?.name}</p> */}
+        <Link to='/profiles/add' className="hover:text-[#dab553] hover:font-bold">Add your profile</Link> <br></br>
+
       </IfAuthenticated>
         <IfNotAuthenticated>
           
@@ -93,7 +95,7 @@ function BurgerMenu() {
               onClick={handleSignIn}
             >
               Sign In
-            </Link>
+            </Link> <br></br>
           
         </IfNotAuthenticated>
         
