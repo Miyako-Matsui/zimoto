@@ -25,7 +25,7 @@ function GuideProfile() {
 
   return (
     <>
-    <h1 className='text-6xl text-center'>Guide Profile</h1>
+    <h1 className='text-6xl text-center m-7'>Guide Profile</h1>
       <div className="w-2/3 mx-auto text-center flex flex-col lg:w-2/3 p-10 lg:p-10 mb-15 ">
         <div className="font-[Lora] bg-[#C2DEDC] text-xl ">
           <div className="block pt-16 break-nomal md:break-all ">
