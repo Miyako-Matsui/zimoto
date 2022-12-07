@@ -9,23 +9,20 @@ function addProfile() {
   const imgPath = useRef(null)
   const imgUrl = 'https://res.cloudinary.com/dhstdr0nk/image/upload/'
   const [Image, setImage] = useState(
-    'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBWmp74dz-1iSapKA7S0lkTOGasfawcsjCgA&usqp=CAU'
   )
   const navigate = useNavigate()
 
   useEffect(() => {
     cloudinary.current = window.cloudinary
-    widget.current = cloudinary.current.createUploadWidget(
-      {
-        cloudName: 'dhstdr0nk',
-        uploadPreset: 'zimoto',
-      },
-      function (error, result) {
-        if (result.data.event == 'abort') {
-          let img = uploadedImage.current
-          if (img == undefined) {
-            img =
-              'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80'
+    widget.current = cloudinary.current.createUploadWidget({
+      cloudName: "dhstdr0nk",
+      uploadPreset: "zimoto",
+    },function(error, result){
+      if(result.data.event == 'abort'){
+        let img = uploadedImage.current
+          if(img == undefined){
+            img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBWmp74dz-1iSapKA7S0lkTOGasfawcsjCgA&usqp=CAU'
           }
           setImage(img)
         }
