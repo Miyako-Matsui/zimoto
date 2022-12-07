@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { addGuide } from '.././apis/guides'
 import { useNavigate } from 'react-router-dom'
 
-function addProfile() {
+function AddProfile() {
   const uploadedImage = useRef()
   const cloudinary = useRef()
   const widget = useRef()
@@ -185,4 +185,4 @@ function addProfile() {
   )
 }
 
-export default addProfile
+export default AddProfile
