@@ -9,7 +9,7 @@ function getAGuide(id, db = connection) {
 }
 
 function addAGuide(newGuide, db = connection) {
-  return db('guides').insert(newGuide)
+  return db('guides').insert(newGuide, 'id')
 }
 
 function deleteAGuide(id, db = connection) {
