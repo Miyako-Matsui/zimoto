@@ -32,9 +32,14 @@ const UploadWidget = () => {
         if (result.data.event === 'abort') {
           window.location.reload(false)
         }
-        if (result.data.info.files[0].uploadInfo.path !== undefined) {
+        try {
           imgPath.current = result.data.info.files[0].uploadInfo.path
+        } catch (err) {
+          console.log({error: err.message})
         }
+        // if (result.data.info.files[0].uploadInfo.path !== undefined) {
+        //   imgPath.current = result.data.info.files[0].uploadInfo.path
+        // }
         if (imgPath.current !== null) {
           const uploadedImage = imgUrl + imgPath.current
 
