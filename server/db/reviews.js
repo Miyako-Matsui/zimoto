@@ -1,7 +1,7 @@
 const connection = require('./connection')
 
 function addReview(review, db = connection) {
-  return db('reviews').insert(review)
+  return db('reviews').insert(review, 'id')
 }
 
 function editReview(id, reviews, db = connection) {
